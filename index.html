@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaito Review - Khám Phá Thế Giới Giải Trí</title>
-    <meta name="description" content="Trang tổng hợp review phim, anime, truyện tranh và game chọn lọc chất lượng cao.">
-    <meta property="og:title" content="Kaito Review - Khám Phá Thế Giới Giải Trí">
-    <meta property="og:description" content="Xem review phim, anime, game chất lượng nhất.">
-    <meta property="og:type" content="website">
+    <meta name="description" content="Trang tổng hợp review phim và truyện tranh chọn lọc chất lượng cao.">
     
     <!-- Favicon Inline SVG -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
@@ -23,7 +20,7 @@
            ============================================================ */
         :root {
             --bg-dark: #0b0f19;
-            --bg-card: rgba(15, 23, 42, 0.7);
+            --bg-card: rgba(15, 23, 42, 0.75);
             --border-glass: rgba(255, 255, 255, 0.12);
             --border-glow: rgba(139, 92, 246, 0.4);
             --primary: #8b5cf6;
@@ -34,10 +31,10 @@
             --text-sub: #94a3b8;
             --text-muted: #64748b;
             --danger: #ef4444;
-            --radius-lg: 16px;
-            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-md: 14px;
             --radius-sm: 8px;
-            --shadow-glow: 0 8px 32px 0 rgba(139, 92, 246, 0.25);
+            --shadow-glow: 0 8px 32px 0 rgba(139, 92, 246, 0.3);
             --font: 'Be Vietnam Pro', sans-serif;
         }
 
@@ -49,18 +46,9 @@
                         url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2000&auto=format&fit=crop') center/cover fixed no-repeat;
             color: var(--text-main);
             min-height: 100vh;
-            padding-bottom: 70px;
+            padding-bottom: 75px;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
-        }
-
-        /* Glassmorphism Container */
-        .glass {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-lg);
         }
 
         /* ============================================================
@@ -70,10 +58,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 12px 24px;
-            margin-bottom: 20px;
+            padding: 14px 24px;
             border-bottom: 1px solid var(--border-glass);
-            background: rgba(11, 15, 25, 0.8);
+            background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(20px);
         }
 
@@ -93,18 +80,11 @@
             color: #fff;
             font-weight: 800;
             font-size: 22px;
-            letter-spacing: -0.5px;
         }
 
         .logo-crown {
             font-size: 26px;
             filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.8));
-            animation: pulseCrown 3s infinite ease-in-out;
-        }
-
-        @keyframes pulseCrown {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-3px) rotate(5deg); }
         }
 
         .logo-text span {
@@ -115,8 +95,9 @@
 
         .nav-links {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-btn {
@@ -126,7 +107,7 @@
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -137,79 +118,96 @@
 
         .nav-btn:hover, .nav-btn.active {
             color: #fff;
-            background: rgba(139, 92, 246, 0.2);
+            background: rgba(139, 92, 246, 0.25);
             border: 1px solid var(--border-glow);
         }
 
-        .badge-count {
+        .btn-auth-header {
             background: var(--primary);
             color: #fff;
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 10px;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
             font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: var(--font);
+            margin-left: 10px;
+        }
+
+        .btn-auth-header:hover {
+            background: var(--primary-hover);
+            box-shadow: var(--shadow-glow);
         }
 
         /* ============================================================
-           3. HERO BANNER & SEARCH
+           3. HERO & BANNER THÔNG BÁO
            ============================================================ */
         .hero {
             max-width: 1280px;
             margin: 0 auto 30px;
-            padding: 40px 20px;
+            padding: 25px 20px 10px;
             text-align: center;
-            position: relative;
+        }
+
+        /* Banner Ảnh Thông Báo */
+        .notice-banner-wrapper {
+            max-width: 950px;
+            margin: 0 auto 25px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .notice-banner-img {
+            width: 100%;
+            height: auto;
+            max-height: 380px;
+            object-fit: cover;
+            display: block;
         }
 
         .hero h1 {
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #a78bfa 100%);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            color: var(--text-sub);
-            font-size: 16px;
-            max-width: 600px;
-            margin: 0 auto 28px;
-        }
-
-        /* Search Bar */
+        /* Thanh Tìm Kiếm */
         .search-wrapper {
             max-width: 650px;
             margin: 0 auto 20px;
             position: relative;
-            display: flex;
-            align-items: center;
         }
 
         .search-input {
             width: 100%;
             padding: 16px 50px 16px 20px;
             font-size: 15px;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.9);
             border: 1px solid var(--border-glass);
             border-radius: 30px;
             color: #fff;
             outline: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             font-family: var(--font);
         }
 
         .search-input:focus {
             border-color: var(--primary);
             box-shadow: var(--shadow-glow);
-            background: rgba(15, 23, 42, 0.95);
         }
 
         .search-clear-btn {
             position: absolute;
             right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
             background: none;
             border: none;
             color: var(--text-sub);
@@ -218,23 +216,22 @@
             display: none;
         }
 
-        /* Category Filter Pills */
+        /* Nút Lọc Cố Định: Chỉ có Tất cả, Truyện, Phim */
         .category-pills {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 12px;
             margin-top: 15px;
         }
 
         .pill {
-            padding: 8px 18px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 24px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border-glass);
             color: var(--text-sub);
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.25s ease;
             font-family: var(--font);
@@ -244,11 +241,11 @@
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            box-shadow: var(--shadow-glow);
         }
 
         /* ============================================================
-           4. MAIN CONTENT & GRID
+           4. DANH SÁCH VIDEO (ĐÃ CHỈNH KÍCH THƯỚC TO HƠN)
            ============================================================ */
         .main-container {
             max-width: 1280px;
@@ -260,24 +257,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
             border-bottom: 1px solid var(--border-glass);
         }
 
         .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
         }
 
         .sort-select {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
             border: 1px solid var(--border-glass);
             color: var(--text-sub);
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
             font-size: 13px;
             outline: none;
@@ -285,33 +279,29 @@
             font-family: var(--font);
         }
 
+        /* Cấu hình Thẻ To Hơn: minmax(340px) thay vì 270px */
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
             margin-bottom: 40px;
         }
 
-        /* ============================================================
-           5. CARD DESIGN
-           ============================================================ */
         .card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.8);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-md);
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.35s ease;
             display: flex;
             flex-direction: column;
-            position: relative;
+            cursor: pointer;
         }
 
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             border-color: var(--border-glow);
             box-shadow: var(--shadow-glow);
-            background: rgba(15, 23, 42, 0.85);
         }
 
         .card-thumb-wrapper {
@@ -335,95 +325,54 @@
 
         .card-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(11, 15, 25, 0.75);
+            top: 12px;
+            left: 12px;
+            background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(8px);
             color: var(--accent);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 12px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(56, 189, 248, 0.4);
         }
 
         .card-fav-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(11, 15, 25, 0.75);
-            backdrop-filter: blur(8px);
+            top: 12px;
+            right: 12px;
+            background: rgba(11, 15, 25, 0.85);
             border: 1px solid var(--border-glass);
             color: #fff;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .card-fav-btn.active {
             color: var(--danger);
             border-color: var(--danger);
-            background: rgba(239, 68, 68, 0.2);
-        }
-
-        .play-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(11, 15, 25, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card:hover .play-overlay {
-            opacity: 1;
-        }
-
-        .play-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 18px;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+            background: rgba(239, 68, 68, 0.25);
         }
 
         .card-body {
-            padding: 16px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .card-title {
-            font-size: 15px;
+            font-size: 17px;
             font-weight: 700;
             line-height: 1.4;
-            margin-bottom: 8px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            margin-bottom: 10px;
             color: #fff;
-        }
-
-        .card-desc {
-            font-size: 12px;
-            color: var(--text-sub);
-            line-height: 1.5;
-            margin-bottom: 12px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -435,19 +384,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
-            color: var(--text-muted);
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            color: var(--text-sub);
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* ============================================================
-           6. MODAL DETAILED VIEW & PLAYER
+           5. MODAL XEM CHI TIẾT & PLAYER
            ============================================================ */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(5, 7, 13, 0.85);
+            background: rgba(5, 7, 13, 0.88);
             backdrop-filter: blur(16px);
             z-index: 1000;
             display: flex;
@@ -468,18 +417,11 @@
             background: rgba(15, 23, 42, 0.95);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-lg);
-            max-width: 860px;
+            max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
             position: relative;
-        }
-
-        .modal-overlay.active .modal-container {
-            transform: scale(1);
         }
 
         .modal-close-btn {
@@ -487,27 +429,20 @@
             top: 15px;
             right: 15px;
             z-index: 10;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.7);
             border: 1px solid var(--border-glass);
             color: #fff;
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .player-wrapper {
-            position: relative;
             width: 100%;
             aspect-ratio: 16/9;
             background: #000;
-            border-top-left-radius: var(--radius-lg);
-            border-top-right-radius: var(--radius-lg);
-            overflow: hidden;
         }
 
         .player-wrapper iframe, .player-wrapper video {
@@ -516,49 +451,74 @@
             border: none;
         }
 
-        .modal-content {
-            padding: 24px;
+        .modal-content { padding: 24px; }
+        .modal-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+
+        /* ============================================================
+           6. MODAL ĐĂNG KÝ / ĐĂNG NHẬP
+           ============================================================ */
+        .auth-container {
+            background: rgba(15, 23, 42, 0.98);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg);
+            max-width: 420px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
         }
 
-        .modal-title {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .modal-actions {
+        .auth-tabs {
             display: flex;
-            gap: 12px;
-            margin: 16px 0;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 10px;
         }
 
-        .btn-action {
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
+        .auth-tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.25s;
+            padding: 6px 12px;
             font-family: var(--font);
         }
 
-        .btn-action:hover {
-            background: var(--primary);
-            border-color: var(--primary);
+        .auth-tab-btn.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
         }
 
-        .related-title {
-            font-size: 16px;
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            font-family: var(--font);
+        }
+
+        .auth-submit-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
             font-weight: 700;
-            margin: 24px 0 14px;
-            color: var(--accent);
+            cursor: pointer;
+            font-family: var(--font);
         }
 
         /* ============================================================
@@ -570,8 +530,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 60px;
-            background: rgba(11, 15, 25, 0.92);
+            height: 65px;
+            background: rgba(11, 15, 25, 0.95);
             backdrop-filter: blur(20px);
             border-top: 1px solid var(--border-glass);
             z-index: 99;
@@ -592,33 +552,7 @@
             font-family: var(--font);
         }
 
-        .bottom-nav-item.active {
-            color: var(--primary);
-        }
-
-        .bottom-nav-icon {
-            font-size: 18px;
-        }
-
-        /* Loading Skeleton & Error state */
-        .loading-spinner {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 50px 0;
-            color: var(--text-sub);
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto 15px;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .bottom-nav-item.active { color: var(--primary); }
 
         .toast {
             position: fixed;
@@ -628,50 +562,29 @@
             background: rgba(15, 23, 42, 0.95);
             border: 1px solid var(--primary);
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 20px;
             font-size: 13px;
-            box-shadow: var(--shadow-glow);
             opacity: 0;
             pointer-events: none;
             transition: all 0.3s ease;
             z-index: 2000;
         }
 
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            border-top: 1px solid var(--border-glass);
-            padding: 30px 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 13px;
-            background: rgba(11, 15, 25, 0.6);
-        }
-
-        /* RESPONSIVE BREAKPOINTS */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .bottom-nav { display: flex; }
-            .hero h1 { font-size: 26px; }
-            .hero p { font-size: 14px; }
-            .video-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-            .card-body { padding: 10px; }
-            .card-title { font-size: 13px; }
-            .card-desc { display: none; }
+            .video-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+            .hero h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================================
-         HEADER
-         ============================================================ -->
+    <!-- HEADER -->
     <header>
         <div class="header-container">
             <a href="#" class="logo" onclick="switchTab('home')">
@@ -681,243 +594,213 @@
 
             <ul class="nav-links">
                 <li><button class="nav-btn active" id="nav-home" onclick="switchTab('home')">🏠 Trang chủ</button></li>
-                <li><button class="nav-btn" id="nav-explore" onclick="switchTab('explore')">🔍 Khám phá</button></li>
-                <li><button class="nav-btn" id="nav-fav" onclick="switchTab('favorites')">❤️ Yêu thích <span class="badge-count" id="fav-badge">0</span></button></li>
+                <li><button class="nav-btn" id="nav-truyen" onclick="filterCategory('Truyen')">📖 Truyện</button></li>
+                <li><button class="nav-btn" id="nav-phim" onclick="filterCategory('Phim')">🎬 Phim</button></li>
+                <li><button class="nav-btn" id="nav-fav" onclick="switchTab('favorites')">❤️ Yêu thích</button></li>
                 <li><button class="nav-btn" id="nav-history" onclick="switchTab('history')">🕒 Lịch sử</button></li>
+                <li><button class="btn-auth-header" id="btn-auth-trigger" onclick="openAuthModal()">🔑 Đăng nhập</button></li>
             </ul>
         </div>
     </header>
 
-    <!-- ============================================================
-         HERO & SEARCH SECTION
-         ============================================================ -->
+    <!-- HERO & BANNER THÔNG BÁO -->
     <section class="hero">
-        <h1>Kaito Review - Khám Phá Thế Giới Giải Trí</h1>
-        <p>Tổng hợp những video review phim, anime và game chọn lọc chất lượng nhất dành cho bạn.</p>
+        <!-- Ảnh Thông Báo -->
+        <div class="notice-banner-wrapper">
+            <img src="https://i.postimg.cc/T1tyZL0t/1FAB0943-6555-42CB-8034-1CFC44E8C379.png" alt="Thông Báo Kaito Review" class="notice-banner-img" onerror="this.style.display='none'">
+        </div>
 
+        <h1>Kaito Review - Khám Phá Thế Giới Giải Trí</h1>
+
+        <!-- Thanh Tìm Kiếm -->
         <div class="search-wrapper">
-            <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm video, tên phim, thể loại..." oninput="handleSearch()">
+            <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm phim, truyện tranh..." oninput="handleSearch()">
             <button id="search-clear" class="search-clear-btn" onclick="clearSearch()">✕</button>
         </div>
 
-        <div class="category-pills" id="category-pills">
+        <!-- Các Nút Lọc Cố Định: Chỉ giữ 2 danh mục Truyện & Phim -->
+        <div class="category-pills">
             <button class="pill active" onclick="filterCategory('All')">✨ Tất cả</button>
-            <button class="pill" onclick="filterCategory('Anime')">🌸 Anime</button>
+            <button class="pill" onclick="filterCategory('Truyen')">📖 Truyện</button>
             <button class="pill" onclick="filterCategory('Phim')">🎬 Phim</button>
-            <button class="pill" onclick="filterCategory('Truyện')">📖 Truyện</button>
-            <button class="pill" onclick="filterCategory('Game')">🎮 Game</button>
-            <button class="pill" onclick="filterCategory('Khác')">🔮 Khác</button>
         </div>
     </section>
 
-    <!-- ============================================================
-         MAIN CONTENT AREA
-         ============================================================ -->
+    <!-- KHU VỰC HIỂN THỊ VIDEO -->
     <main class="main-container">
         <div class="section-header">
-            <div class="section-title" id="section-title">🔥 Nội Dung Mới Cập Nhật</div>
+            <div class="section-title" id="section-title">🔥 Danh Sách Nội Dung</div>
             <select class="sort-select" id="sort-select" onchange="handleSort()">
                 <option value="newest">Mới nhất</option>
-                <option value="views">Nhiều lượt xem nhất</option>
+                <option value="views">Lượt xem nhiều nhất</option>
                 <option value="az">Tên A - Z</option>
             </select>
         </div>
 
         <div class="video-grid" id="video-grid">
-            <div class="loading-spinner">
-                <div class="spinner"></div>
-                <p>Đang tải dữ liệu từ Kaito Review...</p>
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-sub);">
+                Đang tải dữ liệu từ Google Sheets...
             </div>
         </div>
     </main>
 
-    <!-- ============================================================
-         DETAIL & VIDEO PLAYER MODAL
-         ============================================================ -->
+    <!-- MODAL XEM VIDEO -->
     <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
         <div class="modal-container">
             <button class="modal-close-btn" onclick="closeModal()">✕</button>
-            
-            <div class="player-wrapper" id="player-wrapper">
-                <!-- Dynamic Iframe or Video Player -->
-            </div>
-
+            <div class="player-wrapper" id="player-wrapper"></div>
             <div class="modal-content">
-                <div class="modal-title" id="modal-title">Tiêu đề video</div>
-                
-                <div class="modal-actions">
-                    <button class="btn-action" id="modal-fav-btn" onclick="toggleModalFav()">❤️ Lưu Yêu Thích</button>
-                    <button class="btn-action" onclick="shareVideo()">🔗 Chia Sẻ</button>
-                </div>
-
-                <div style="color: var(--text-sub); font-size: 14px; line-height: 1.6;" id="modal-desc">
-                    Mô tả video chi tiết...
-                </div>
-
-                <div class="related-title">📺 Dành Cho Bạn (Cùng Thể Loại)</div>
-                <div class="video-grid" id="modal-related-grid" style="margin-bottom: 0;"></div>
+                <div class="modal-title" id="modal-title"></div>
+                <div style="color: var(--text-sub); line-height: 1.6;" id="modal-desc"></div>
             </div>
         </div>
     </div>
 
-    <!-- Mobile Bottom Navigation Bar -->
+    <!-- MODAL ĐĂNG KÝ / ĐĂNG NHẬP -->
+    <div class="modal-overlay" id="auth-modal-overlay" onclick="closeAuthOnOverlay(event)">
+        <div class="auth-container">
+            <button class="modal-close-btn" onclick="closeAuthModal()">✕</button>
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" id="tab-login-btn" onclick="switchAuthTab('login')">Đăng Nhập</button>
+                <button class="auth-tab-btn" id="tab-register-btn" onclick="switchAuthTab('register')">Đăng Ký</button>
+            </div>
+
+            <!-- Form Đăng Nhập -->
+            <form class="auth-form" id="form-login" onsubmit="handleLogin(event)">
+                <input type="text" id="login-user" class="auth-input" placeholder="Tên đăng nhập hoặc Email" required>
+                <input type="password" id="login-pass" class="auth-input" placeholder="Mật khẩu" required>
+                <button type="submit" class="auth-submit-btn">Đăng Nhập</button>
+            </form>
+
+            <!-- Form Đăng Ký -->
+            <form class="auth-form" id="form-register" style="display: none;" onsubmit="handleRegister(event)">
+                <input type="text" id="reg-user" class="auth-input" placeholder="Tên tài khoản mới" required>
+                <input type="password" id="reg-pass" class="auth-input" placeholder="Mật khẩu" required>
+                <button type="submit" class="auth-submit-btn">Đăng Ký Tài Khoản</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAV -->
     <nav class="bottom-nav">
-        <button class="bottom-nav-item active" id="bnav-home" onclick="switchTab('home')">
-            <span class="bottom-nav-icon">🏠</span>
-            <span>Trang chủ</span>
+        <button class="bottom-nav-item active" onclick="switchTab('home')">
+            <span>🏠</span><span>Trang chủ</span>
         </button>
-        <button class="bottom-nav-item" id="bnav-explore" onclick="switchTab('explore')">
-            <span class="bottom-nav-icon">🔍</span>
-            <span>Khám phá</span>
+        <button class="bottom-nav-item" onclick="filterCategory('Truyen')">
+            <span>📖</span><span>Truyện</span>
         </button>
-        <button class="bottom-nav-item" id="bnav-fav" onclick="switchTab('favorites')">
-            <span class="bottom-nav-icon">❤️</span>
-            <span>Yêu thích</span>
+        <button class="bottom-nav-item" onclick="filterCategory('Phim')">
+            <span>🎬</span><span>Phim</span>
         </button>
-        <button class="bottom-nav-item" id="bnav-history" onclick="switchTab('history')">
-            <span class="bottom-nav-icon">🕒</span>
-            <span>Lịch sử</span>
+        <button class="bottom-nav-item" onclick="switchTab('favorites')">
+            <span>❤️</span><span>Yêu thích</span>
+        </button>
+        <button class="bottom-nav-item" onclick="openAuthModal()">
+            <span>👤</span><span>Tài khoản</span>
         </button>
     </nav>
 
-    <!-- Notification Toast -->
-    <div class="toast" id="toast">Thông báo!</div>
+    <div class="toast" id="toast"></div>
 
-    <footer>
-        <p>© 2026 Kaito Review. Tất cả nội dung được tổng hợp và tối ưu cho cộng đồng giải trí.</p>
-    </footer>
-
-    <!-- ============================================================
-         JAVASCRIPT LOGIC
-         ============================================================ -->
     <script>
-        // 1. API & FALLBACK DATA
+        // LINK API GOOGLE APPS SCRIPT CỦA BẠN
         const API_URL = 'https://script.google.com/macros/s/AKfycbzuU0M9xSDUtqtu-Hzx9SHhfFTMtWTsOKH7ewkBhgh-pG_Gs4tZyXJhm1tdhLPrmLdE/exec';
-        const FALLBACK_THUMB = 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800&auto=format&fit=crop';
 
-        // Sample Backup Data (In case Apps Script API is offline or empty)
-        const BACKUP_DATA = [
-            { id: 1, title: 'Review Anime: Hành Trình Khám Phá Thế Giới Đêm', category: 'Anime', thumbnail: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800', videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', desc: 'Một siêu phẩm Anime với phong cách đồ họa huyền ảo và cốt truyện đầy lôi cuốn.', clicks: 1250, date: '2026-10-01' },
-            { id: 2, title: 'Top Phim Chiếu Rách Đáng Xem Nhất Năm', category: 'Phim', thumbnail: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800', videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', desc: 'Tổng hợp danh sách các bộ phim bom tấn điện ảnh không thể bỏ qua.', clicks: 3400, date: '2026-09-28' },
-            { id: 3, title: 'Phân Tích Cốt Truyện Game Hấp Dẫn', category: 'Game', thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800', videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', desc: 'Tóm tắt toàn bộ cốt truyện và các bí ẩn chưa được giải đáp trong tựa game đỉnh cao.', clicks: 890, date: '2026-09-25' }
-        ];
-
-        // 2. STATE MANAGEMENT
         let allVideos = [];
-        let currentTab = 'home';
         let currentCategory = 'All';
         let currentSearch = '';
         let currentSort = 'newest';
-        let activeVideo = null;
+        let currentTab = 'home';
 
-        // LocalStorage arrays
         let favorites = JSON.parse(localStorage.getItem('kaito_favorites') || '[]');
         let historyList = JSON.parse(localStorage.getItem('kaito_history') || '[]');
+        let currentUser = JSON.parse(localStorage.getItem('kaito_current_user') || 'null');
 
-        // 3. INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
-            updateFavBadge();
-            loadVideos();
+            checkUserStatus();
+            loadDataFromSheets();
         });
 
-        async function loadVideos() {
+        // ĐỌC DỮ LIỆU TỪ GOOGLE SHEETS
+        async function loadDataFromSheets() {
             const grid = document.getElementById('video-grid');
             try {
                 const res = await fetch(API_URL);
-                if (!res.ok) throw new Error('Network error');
                 const data = await res.json();
-                allVideos = (Array.isArray(data) && data.length > 0) ? data : BACKUP_DATA;
+                
+                // Đã khóa hoàn toàn video mẫu: chỉ đọc từ Sheets
+                allVideos = Array.isArray(data) ? data : [];
+                renderVideos();
             } catch (err) {
-                console.warn('Dùng dữ liệu dự phòng do lỗi kết nối:', err);
-                allVideos = BACKUP_DATA;
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--text-sub);">
+                    Chưa có video nào trong Google Sheets. Bạn hãy thêm dòng mới vào file Google Sheets nhé!
+                </div>`;
             }
-            renderVideos();
         }
 
-        // 4. RENDERING ENGINE
+        // XỬ LÝ HIỂN THỊ
         function renderVideos() {
             const grid = document.getElementById('video-grid');
             let filtered = [...allVideos];
 
-            // Tab logic
             if (currentTab === 'favorites') {
                 filtered = filtered.filter(v => favorites.includes(v.id));
                 document.getElementById('section-title').innerText = '❤️ Danh Sách Yêu Thích';
             } else if (currentTab === 'history') {
-                filtered = historyList.map(hId => allVideos.find(v => v.id == hId)).filter(Boolean);
+                filtered = historyList.map(id => allVideos.find(v => v.id == id)).filter(Boolean);
                 document.getElementById('section-title').innerText = '🕒 Lịch Sử Đã Xem';
             } else {
-                document.getElementById('section-title').innerText = '🔥 Nội Dung Mới Cập Nhật';
+                document.getElementById('section-title').innerText = '🔥 Danh Sách Nội Dung';
             }
 
-            // Category Filter
             if (currentCategory !== 'All') {
-                filtered = filtered.filter(v => (v.category || 'Khác').toLowerCase() === currentCategory.toLowerCase());
+                filtered = filtered.filter(v => (v.category || '').toLowerCase().includes(currentCategory.toLowerCase()));
             }
 
-            // Search Filter
             if (currentSearch.trim() !== '') {
-                const query = currentSearch.toLowerCase();
-                filtered = filtered.filter(v => 
-                    (v.title || '').toLowerCase().includes(query) || 
-                    (v.category || '').toLowerCase().includes(query) ||
-                    (v.desc || '').toLowerCase().includes(query)
-                );
+                const q = currentSearch.toLowerCase();
+                filtered = filtered.filter(v => (v.title || '').toLowerCase().includes(q));
             }
 
-            // Sorting
-            if (currentSort === 'newest') {
-                filtered.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-            } else if (currentSort === 'views') {
-                filtered.sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
+            if (currentSort === 'views') {
+                filtered.sort((a,b) => (b.clicks || 0) - (a.clicks || 0));
             } else if (currentSort === 'az') {
-                filtered.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+                filtered.sort((a,b) => (a.title || '').localeCompare(b.title || ''));
             }
 
             if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-sub);">
-                        <p style="font-size: 40px; margin-bottom: 10px;">🔍</p>
-                        <p style="font-size: 16px; font-weight: 600;">Không tìm thấy nội dung phù hợp!</p>
-                        <p style="font-size: 13px; margin-top: 5px;">Hãy thử tìm từ khóa khác hoặc chọn thể loại khác.</p>
-                    </div>`;
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px; color:var(--text-sub);">
+                    Không tìm thấy nội dung nào!
+                </div>`;
                 return;
             }
 
-            grid.innerHTML = filtered.map(v => createCardHTML(v)).join('');
-        }
-
-        function createCardHTML(v) {
-            const isFav = favorites.includes(v.id);
-            const thumb = v.thumbnail || FALLBACK_THUMB;
-            return `
-                <div class="card" onclick="openDetail(${v.id})">
+            grid.innerHTML = filtered.map(v => {
+                const isFav = favorites.includes(v.id);
+                return `
+                <div class="card" onclick="openVideoModal(${v.id})">
                     <div class="card-thumb-wrapper">
-                        <img class="card-thumb" src="${thumb}" alt="${v.title}" onerror="this.onerror=null;this.src='${FALLBACK_THUMB}';" loading="lazy">
-                        <span class="card-badge">${v.category || 'Review'}</span>
+                        <img class="card-thumb" src="${v.thumbnail || ''}" alt="${v.title}" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800';">
+                        <span class="card-badge">${v.category || 'Nội dung'}</span>
                         <button class="card-fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(event, ${v.id})">
                             ${isFav ? '❤️' : '🤍'}
                         </button>
-                        <div class="play-overlay">
-                            <div class="play-icon">▶</div>
-                        </div>
                     </div>
                     <div class="card-body">
                         <div class="card-title">${v.title || 'Chưa có tiêu đề'}</div>
-                        <div class="card-desc">${v.desc || 'Xem review chi tiết video tại Kaito Review.'}</div>
                         <div class="card-meta">
                             <span>👁️ ${v.clicks || 0} lượt xem</span>
-                            <span>📅 ${v.date || 'Mới'}</span>
+                            <span>Xem Ngay ➔</span>
                         </div>
                     </div>
                 </div>`;
+            }).join('');
         }
 
-        // 5. INTERACTION & CONTROLS
+        // TÌM KIẾM VÀ LỌC
         function handleSearch() {
-            const val = document.getElementById('search-input').value;
-            currentSearch = val;
-            document.getElementById('search-clear').style.display = val ? 'block' : 'none';
+            currentSearch = document.getElementById('search-input').value;
+            document.getElementById('search-clear').style.display = currentSearch ? 'block' : 'none';
             renderVideos();
         }
 
@@ -930,9 +813,15 @@
 
         function filterCategory(cat) {
             currentCategory = cat;
-            document.querySelectorAll('.pill').forEach(el => {
-                el.classList.toggle('active', el.innerText.includes(cat) || (cat === 'All' && el.innerText.includes('Tất cả')));
+            currentTab = 'home';
+            document.querySelectorAll('.pill').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'All' && btn.innerText.includes('Tất cả')));
             });
+            renderVideos();
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
             renderVideos();
         }
 
@@ -941,102 +830,51 @@
             renderVideos();
         }
 
-        function switchTab(tab) {
-            currentTab = tab;
-            document.querySelectorAll('.nav-btn, .bottom-nav-item').forEach(el => el.classList.remove('active'));
-            
-            const desktopBtn = document.getElementById(`nav-${tab === 'home' ? 'home' : tab === 'explore' ? 'explore' : tab === 'favorites' ? 'fav' : 'history'}`);
-            const mobileBtn = document.getElementById(`bnav-${tab === 'home' ? 'home' : tab === 'explore' ? 'explore' : tab === 'favorites' ? 'fav' : 'history'}`);
-            if (desktopBtn) desktopBtn.classList.add('active');
-            if (mobileBtn) mobileBtn.classList.add('active');
-
-            renderVideos();
-        }
-
-        // 6. FAVORITES & HISTORY MANAGEMENT
+        // YÊU THÍCH VÀ LỊCH SỬ
         function toggleFav(e, id) {
             e.stopPropagation();
-            const index = favorites.indexOf(id);
-            if (index > -1) {
-                favorites.splice(index, 1);
-                showToast('Đã xóa khỏi danh sách Yêu thích');
+            const idx = favorites.indexOf(id);
+            if (idx > -1) {
+                favorites.splice(idx, 1);
+                showToast('Đã xóa khỏi yêu thích');
             } else {
                 favorites.push(id);
-                showToast('Đã thêm vào danh sách Yêu thích ❤️');
+                showToast('Đã thêm vào yêu thích ❤️');
             }
             localStorage.setItem('kaito_favorites', JSON.stringify(favorites));
-            updateFavBadge();
             renderVideos();
         }
 
-        function updateFavBadge() {
-            document.getElementById('fav-badge').innerText = favorites.length;
-        }
+        function openVideoModal(id) {
+            const v = allVideos.find(item => item.id == id);
+            if (!v) return;
 
-        function addToHistory(id) {
-            historyList = historyList.filter(hId => hId != id);
-            historyList.unshift(id);
-            if (historyList.length > 20) historyList.pop();
+            // Ghi lịch sử
+            if (!historyList.includes(id)) historyList.unshift(id);
             localStorage.setItem('kaito_history', JSON.stringify(historyList));
-        }
 
-        // 7. MODAL DETAILED PLAYER
-        function openDetail(id) {
-            activeVideo = allVideos.find(v => v.id == id);
-            if (!activeVideo) return;
-
-            addToHistory(activeVideo.id);
-
-            // Increment view count
-            activeVideo.clicks = (parseInt(activeVideo.clicks) || 0) + 1;
+            // Tăng lượt xem
+            v.clicks = (parseInt(v.clicks) || 0) + 1;
             fetch(API_URL, {
                 method: 'POST',
-                body: JSON.stringify({ id: activeVideo.id }),
+                body: JSON.stringify({ id: v.id }),
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' }
             }).catch(() => {});
 
-            // Setup Modal Data
-            document.getElementById('modal-title').innerText = activeVideo.title;
-            document.getElementById('modal-desc').innerText = activeVideo.desc || 'Review video chi tiết trên Kaito Review.';
+            document.getElementById('modal-title').innerText = v.title;
+            document.getElementById('modal-desc').innerText = v.desc || 'Xem review chi tiết tại Kaito Review.';
 
-            // Setup Video / Embed Player
-            const playerWrapper = document.getElementById('player-wrapper');
-            let url = activeVideo.videoUrl || '';
-            if (url.includes('youtube.com/watch?v=')) {
-                url = url.replace('watch?v=', 'embed/');
-            }
-            
-            if (url.includes('embed') || url.includes('youtube.com') || url.includes('vimeo')) {
-                playerWrapper.innerHTML = `<iframe src="${url}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+            let url = v.videoUrl || '';
+            if (url.includes('youtube.com/watch?v=')) url = url.replace('watch?v=', 'embed/');
+
+            const wrapper = document.getElementById('player-wrapper');
+            if (url.includes('embed') || url.includes('youtube.com')) {
+                wrapper.innerHTML = `<iframe src="${url}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
             } else {
-                playerWrapper.innerHTML = `<video src="${url}" controls autoplay style="width:100%;height:100%;"></video>`;
+                wrapper.innerHTML = `<video src="${url}" controls autoplay style="width:100%;height:100%;"></video>`;
             }
-
-            updateModalFavBtn();
-
-            // Render Related
-            const related = allVideos.filter(v => v.id != activeVideo.id && v.category === activeVideo.category).slice(0, 3);
-            document.getElementById('modal-related-grid').innerHTML = related.map(v => createCardHTML(v)).join('');
 
             document.getElementById('modal-overlay').classList.add('active');
-        }
-
-        function updateModalFavBtn() {
-            const btn = document.getElementById('modal-fav-btn');
-            if (activeVideo && favorites.includes(activeVideo.id)) {
-                btn.innerHTML = '❤️ Đã Yêu Thích';
-                btn.style.background = 'rgba(239, 68, 68, 0.3)';
-            } else {
-                btn.innerHTML = '🤍 Lưu Yêu Thích';
-                btn.style.background = 'rgba(255, 255, 255, 0.05)';
-            }
-        }
-
-        function toggleModalFav() {
-            if (!activeVideo) return;
-            const fakeEvent = { stopPropagation: () => {} };
-            toggleFav(fakeEvent, activeVideo.id);
-            updateModalFavBtn();
         }
 
         function closeModal() {
@@ -1048,15 +886,59 @@
             if (e.target.id === 'modal-overlay') closeModal();
         }
 
-        function shareVideo() {
-            if (navigator.share && activeVideo) {
-                navigator.share({
-                    title: activeVideo.title,
-                    url: window.location.href
-                }).catch(() => {});
+        // ĐĂNG NHẬP / ĐĂNG KÝ
+        function openAuthModal() {
+            document.getElementById('auth-modal-overlay').classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal-overlay').classList.remove('active');
+        }
+
+        function closeAuthOnOverlay(e) {
+            if (e.target.id === 'auth-modal-overlay') closeAuthModal();
+        }
+
+        function switchAuthTab(tab) {
+            document.getElementById('tab-login-btn').classList.toggle('active', tab === 'login');
+            document.getElementById('tab-register-btn').classList.toggle('active', tab === 'register');
+            document.getElementById('form-login').style.display = tab === 'login' ? 'flex' : 'none';
+            document.getElementById('form-register').style.display = tab === 'register' ? 'flex' : 'none';
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-user').value;
+            currentUser = { name: username };
+            localStorage.setItem('kaito_current_user', JSON.stringify(currentUser));
+            checkUserStatus();
+            closeAuthModal();
+            showToast(`Xin chào, ${username}! 👋`);
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const username = document.getElementById('reg-user').value;
+            currentUser = { name: username };
+            localStorage.setItem('kaito_current_user', JSON.stringify(currentUser));
+            checkUserStatus();
+            closeAuthModal();
+            showToast(`Tạo tài khoản ${username} thành công! 🎉`);
+        }
+
+        function checkUserStatus() {
+            const btn = document.getElementById('btn-auth-trigger');
+            if (currentUser) {
+                btn.innerText = `👤 ${currentUser.name} (Thoát)`;
+                btn.onclick = () => {
+                    localStorage.removeItem('kaito_current_user');
+                    currentUser = null;
+                    checkUserStatus();
+                    showToast('Đã đăng xuất tài khoản!');
+                };
             } else {
-                navigator.clipboard.writeText(window.location.href);
-                showToast('Đã chép liên kết vào bộ nhớ tạm!');
+                btn.innerText = '🔑 Đăng nhập';
+                btn.onclick = openAuthModal;
             }
         }
 
