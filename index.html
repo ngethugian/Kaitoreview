@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Xem Video</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; padding: 15px; }
+        h1 { text-align: center; margin-bottom: 20px; color: #1c1e21; font-size: 24px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .video-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
+        .video-card:active { transform: scale(0.98); }
+        .thumbnail-box { width: 100%; aspect-ratio: 16/9; background: #ddd; overflow: hidden; }
+        .thumbnail-box img { width: 100%; height: 100%; object-fit: cover; }
+        .info-box { padding: 12px; }
+        .title { font-size: 15px; font-weight: 600; color: #050505; margin-bottom: 6px; line-height: 1.3; }
+        .views { font-size: 13px; color: #65676b; }
+        #loading { text-align: center; padding: 40px; color: #65676b; }
+    </style>
+</head>
+<body>
+
+    <h1>Danh Sách Video</h1>
+    <div id="loading">Đang tải dữ liệu từ Google Sheets...</div>
+    <div class="video-grid" id="video-container"></div>
+
+    <script>
+        // Link API của bạn đã được gắn vào đây:
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzuU0M9xSDUtqtu-Hzx9SHhfFTMtWTsOKH7ewkBhgh-pG_Gs4tZyXJhm1tdhLPrmLdE/exec';
+
+        const container = document.getElementById('video-container');
+        const loading = document.getElementById('loading');
+
+        // Hàm tải danh sách video từ Sheet
+        async function fetchVideos() {
+            try {
+                const response = await fetch(API_URL);
+                const videos = await response.json();
+                loading.style.display = 'none';
+                renderVideos(videos);
+            } catch (error) {
+                loading.innerText = 'Không thể tải dữ liệu. Vui lòng thử lại sau!';
+            }
+        }
+
+        // Hàm hiển thị danh sách lên màn hình
+        function renderVideos(videos) {
+            container.innerHTML = '';
+            videos.forEach(video => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <div class="thumbnail-box">
+                        <img src="${video.thumbnail}" alt="Thumbnail">
+                    </div>
+                    <div class="info-box">
+                        <div class="title">${video.title}</div>
+                        <div class="views">👁️ Lượt xem: <span id="view-${video.id}">${video.clicks}</span></div>
+                    </div>
+                `;
+                card.onclick = () => handleVideoClick(video.id, video.videoUrl);
+                container.appendChild(card);
+            });
+        }
+
+        // Hàm xử lý khi người dùng bấm vào video
+        function handleVideoClick(id, url) {
+            // Tăng số lượt xem hiển thị ngay lập tức
+            const viewSpan = document.getElementById(`view-${id}`);
+            if (viewSpan) {
+                viewSpan.innerText = parseInt(viewSpan.innerText) + 1;
+            }
+
+            // Mở link video ở tab mới
+            window.open(url, '_blank');
+
+            // Gửi tín hiệu ngầm cộng 1 lượt xem vào Google Sheets
+            fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify({ id: id }),
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+            });
+        }
+
+        // Chạy tải dữ liệu khi mở web
+        fetchVideos();
+    </script>
+</body>
+</html>
