@@ -3,37 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaito Review - Khám Phá Thế Giới Giải Trí</title>
+    <title>Kaito Review - Phim & Truyện</title>
     <meta name="description" content="Trang tổng hợp review phim và truyện tranh chọn lọc chất lượng cao.">
     
-    <!-- Favicon Inline SVG -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
     
-    <!-- Google Font: Be Vietnam Pro -->
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* ============================================================
-           1. CORE STYLES & GLASSMORPHISM THEME
-           ============================================================ */
         :root {
             --bg-dark: #0b0f19;
-            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-card: rgba(15, 23, 42, 0.8);
             --border-glass: rgba(255, 255, 255, 0.12);
             --border-glow: rgba(139, 92, 246, 0.4);
             --primary: #8b5cf6;
             --primary-hover: #7c3aed;
-            --secondary: #3b82f6;
             --accent: #38bdf8;
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
-            --text-muted: #64748b;
             --danger: #ef4444;
             --radius-lg: 18px;
             --radius-md: 14px;
-            --radius-sm: 8px;
             --shadow-glow: 0 8px 32px 0 rgba(139, 92, 246, 0.3);
             --font: 'Be Vietnam Pro', sans-serif;
         }
@@ -42,911 +36,407 @@
         
         body {
             font-family: var(--font);
-            background: linear-gradient(180deg, rgba(11, 15, 25, 0.88) 0%, rgba(15, 23, 42, 0.95) 100%),
+            background: linear-gradient(180deg, rgba(11, 15, 25, 0.9) 0%, rgba(15, 23, 42, 0.96) 100%),
                         url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2000&auto=format&fit=crop') center/cover fixed no-repeat;
             color: var(--text-main);
             min-height: 100vh;
             padding-bottom: 75px;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ============================================================
-           2. HEADER & NAVIGATION
-           ============================================================ */
+        /* HEADER */
         header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 14px 24px;
+            position: sticky; top: 0; z-index: 100; padding: 14px 24px;
             border-bottom: 1px solid var(--border-glass);
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(20px);
+            background: rgba(11, 15, 25, 0.88); backdrop-filter: blur(20px);
         }
 
         .header-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1280px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 800;
-            font-size: 22px;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 800; font-size: 22px; }
+        .logo-crown { font-size: 26px; filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.8)); }
+        .logo-text span { background: linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .logo-crown {
-            font-size: 26px;
-            filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.8));
-        }
-
-        .logo-text span {
-            background: linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            list-style: none;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 10px; list-style: none; align-items: center; }
 
         .nav-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-sub);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font);
+            background: transparent; border: none; color: var(--text-sub);
+            padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s ease; font-family: var(--font);
         }
 
         .nav-btn:hover, .nav-btn.active {
-            color: #fff;
-            background: rgba(139, 92, 246, 0.25);
-            border: 1px solid var(--border-glow);
+            color: #fff; background: rgba(139, 92, 246, 0.25); border: 1px solid var(--border-glow);
         }
 
         .btn-auth-header {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: var(--font);
-            margin-left: 10px;
+            background: var(--primary); color: #fff; border: none;
+            padding: 8px 18px; border-radius: 20px; font-weight: 700; cursor: pointer;
+            margin-left: 10px; font-family: var(--font); transition: 0.3s;
+        }
+        .btn-auth-header:hover { background: var(--primary-hover); box-shadow: var(--shadow-glow); }
+
+        /* HERO & BANNER & VISIT COUNTER */
+        .hero { max-width: 1280px; margin: 0 auto 20px; padding: 25px 20px 10px; text-align: center; }
+
+        .visit-counter-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(139, 92, 246, 0.15); border: 1px solid var(--border-glow);
+            padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
+            color: var(--accent); margin-bottom: 18px;
         }
 
-        .btn-auth-header:hover {
-            background: var(--primary-hover);
-            box-shadow: var(--shadow-glow);
-        }
-
-        /* ============================================================
-           3. HERO & BANNER THÔNG BÁO
-           ============================================================ */
-        .hero {
-            max-width: 1280px;
-            margin: 0 auto 30px;
-            padding: 25px 20px 10px;
-            text-align: center;
-        }
-
-        /* Banner Ảnh Thông Báo */
         .notice-banner-wrapper {
-            max-width: 950px;
-            margin: 0 auto 25px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border-glow);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background: rgba(15, 23, 42, 0.8);
+            max-width: 950px; margin: 0 auto 20px; border-radius: var(--radius-lg);
+            overflow: hidden; border: 1px solid var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: rgba(15, 23, 42, 0.8);
         }
-
-        .notice-banner-img {
-            width: 100%;
-            height: auto;
-            max-height: 380px;
-            object-fit: cover;
-            display: block;
-        }
+        .notice-banner-img { width: 100%; height: auto; max-height: 380px; object-fit: cover; display: block; }
 
         .hero h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 10px;
+            font-size: 32px; font-weight: 800; margin-bottom: 15px;
             background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* Thanh Tìm Kiếm */
-        .search-wrapper {
-            max-width: 650px;
-            margin: 0 auto 20px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 16px 50px 16px 20px;
-            font-size: 15px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid var(--border-glass);
-            border-radius: 30px;
-            color: #fff;
-            outline: none;
-            transition: all 0.3s ease;
-            font-family: var(--font);
-        }
-
-        .search-input:focus {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .search-clear-btn {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--text-sub);
-            font-size: 18px;
-            cursor: pointer;
-            display: none;
-        }
-
-        /* Nút Lọc Cố Định: Chỉ có Tất cả, Truyện, Phim */
-        .category-pills {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
+        /* THỦ CÔNG LỌC DANH MỤC */
+        .category-pills { display: flex; justify-content: center; gap: 16px; margin-top: 15px; flex-wrap: wrap; }
         .pill {
-            padding: 10px 24px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass);
-            color: var(--text-sub);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-family: var(--font);
+            padding: 12px 32px; border-radius: 25px;
+            background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border-glass);
+            color: var(--text-sub); font-size: 15px; font-weight: 700;
+            cursor: pointer; transition: all 0.25s ease; font-family: var(--font);
         }
-
         .pill:hover, .pill.active {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-            box-shadow: var(--shadow-glow);
+            background: var(--primary); color: #fff;
+            border-color: var(--primary); box-shadow: var(--shadow-glow);
         }
 
-        /* ============================================================
-           4. DANH SÁCH VIDEO (ĐÃ CHỈNH KÍCH THƯỚC TO HƠN)
-           ============================================================ */
-        .main-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 22px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .section-title {
-            font-size: 22px;
-            font-weight: 800;
-        }
-
-        .sort-select {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid var(--border-glass);
-            color: var(--text-sub);
-            padding: 8px 14px;
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            outline: none;
-            cursor: pointer;
-            font-family: var(--font);
-        }
-
-        /* Cấu hình Thẻ To Hơn: minmax(340px) thay vì 270px */
+        /* THẺ VIDEO LỚN */
+        .main-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; border-bottom: 1px solid var(--border-glass); padding-bottom: 12px;}
+        .section-title { font-size: 22px; font-weight: 800; }
+        
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 28px;
-            margin-bottom: 40px;
+            gap: 28px; margin-bottom: 40px;
         }
 
         .card {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: all 0.35s ease;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
+            background: var(--bg-card); border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md); overflow: hidden;
+            transition: all 0.35s ease; cursor: pointer; display: flex; flex-direction: column;
         }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--border-glow);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .card-thumb-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            background: #1e293b;
-        }
-
-        .card-thumb {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover .card-thumb {
-            transform: scale(1.08);
-        }
-
+        .card:hover { transform: translateY(-8px); border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
+        
+        .card-thumb-wrapper { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1e293b; }
+        .card-thumb { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card:hover .card-thumb { transform: scale(1.08); }
+        
         .card-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(8px);
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 14px;
-            border: 1px solid rgba(56, 189, 248, 0.4);
+            position: absolute; top: 12px; left: 12px;
+            background: rgba(11, 15, 25, 0.85); color: var(--accent);
+            font-size: 12px; font-weight: 700; padding: 5px 12px;
+            border-radius: 14px; border: 1px solid rgba(56, 189, 248, 0.4);
         }
 
-        .card-fav-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(11, 15, 25, 0.85);
-            border: 1px solid var(--border-glass);
-            color: #fff;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .card-fav-btn.active {
-            color: var(--danger);
-            border-color: var(--danger);
-            background: rgba(239, 68, 68, 0.25);
-        }
-
-        .card-body {
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-title {
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 10px;
-            color: #fff;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
+        .card-body { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #fff; line-height: 1.4; }
+        .card-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 15px; line-height: 1.5; }
+        
         .card-meta {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: var(--text-sub);
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: auto; display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px; color: var(--text-sub); padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* ============================================================
-           5. MODAL XEM CHI TIẾT & PLAYER
-           ============================================================ */
+        /* MODAL VÀ ĐĂNG NHẬP */
         .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 7, 13, 0.88);
-            backdrop-filter: blur(16px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            position: fixed; inset: 0; background: rgba(5,7,13,0.9); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: 0.3s;
         }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-container {
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-lg);
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
+            background: rgba(15, 23, 42, 0.98); border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg); width: 100%; max-width: 850px; max-height: 90vh;
+            overflow-y: auto; position: relative; padding: 20px;
         }
 
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 10;
-            background: rgba(0,0,0,0.7);
-            border: 1px solid var(--border-glass);
-            color: #fff;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .player-wrapper {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #000;
-        }
-
-        .player-wrapper iframe, .player-wrapper video {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .modal-content { padding: 24px; }
-        .modal-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-
-        /* ============================================================
-           6. MODAL ĐĂNG KÝ / ĐĂNG NHẬP
-           ============================================================ */
         .auth-container {
-            background: rgba(15, 23, 42, 0.98);
-            border: 1px solid var(--border-glow);
-            border-radius: var(--radius-lg);
-            max-width: 420px;
-            width: 100%;
-            padding: 30px;
-            position: relative;
+            background: rgba(15,23,42,0.98); border: 1px solid var(--border-glow);
+            border-radius: var(--radius-lg); width: 100%; max-width: 400px; padding: 30px; position: relative;
+        }
+        .modal-close-btn {
+            position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border-glass); color: #fff; width: 34px; height: 34px;
+            border-radius: 50%; cursor: pointer; font-size: 16px;
         }
 
-        .auth-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 24px;
-            border-bottom: 1px solid var(--border-glass);
-            padding-bottom: 10px;
-        }
+        .auth-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px; }
+        .auth-tab-btn { background: none; border: none; color: var(--text-sub); font-size: 15px; font-weight: 700; cursor: pointer; padding: 5px 10px; font-family: var(--font); }
+        .auth-tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
 
-        .auth-tab-btn {
-            background: none;
-            border: none;
-            color: var(--text-sub);
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            padding: 6px 12px;
-            font-family: var(--font);
-        }
+        .auth-input { width: 100%; padding: 12px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: 8px; color: #fff; font-family: var(--font); }
+        .auth-submit-btn { width: 100%; background: var(--primary); border: none; color: #fff; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: var(--font); }
+        
+        .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; padding: 10px 22px; border-radius: 20px; opacity: 0; transition: 0.3s; z-index: 2000; pointer-events: none;}
+        .toast.show { opacity: 1; }
 
-        .auth-tab-btn.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .auth-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .auth-input {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-sm);
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            font-family: var(--font);
-        }
-
-        .auth-submit-btn {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 14px;
-            border-radius: var(--radius-sm);
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: var(--font);
-        }
-
-        /* ============================================================
-           7. MOBILE BOTTOM NAV
-           ============================================================ */
-        .bottom-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 65px;
-            background: rgba(11, 15, 25, 0.95);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--border-glass);
-            z-index: 99;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .bottom-nav-item {
-            background: none;
-            border: none;
-            color: var(--text-sub);
-            font-size: 11px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            font-family: var(--font);
-        }
-
+        .bottom-nav { display: none; position: fixed; bottom: 0; width: 100%; height: 65px; background: rgba(11,15,25,0.95); border-top: 1px solid var(--border-glass); z-index: 99; justify-content: space-around; align-items: center; }
+        .bottom-nav-item { background: none; border: none; color: var(--text-sub); display: flex; flex-direction: column; align-items: center; font-size: 11px; cursor: pointer; font-family: var(--font); }
         .bottom-nav-item.active { color: var(--primary); }
-
-        .toast {
-            position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid var(--primary);
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 20px;
-            font-size: 13px;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            z-index: 2000;
-        }
-
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .bottom-nav { display: flex; }
-            .video-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
-            .hero h1 { font-size: 24px; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } .bottom-nav { display: flex; } .video-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo" onclick="switchTab('home')">
+            <a href="#" class="logo" onclick="filterCategory('Truyện')">
                 <span class="logo-crown">👑</span>
                 <span class="logo-text">Kaito <span>Review</span></span>
             </a>
-
             <ul class="nav-links">
-                <li><button class="nav-btn active" id="nav-home" onclick="switchTab('home')">🏠 Trang chủ</button></li>
-                <li><button class="nav-btn" id="nav-truyen" onclick="filterCategory('Truyen')">📖 Truyện</button></li>
-                <li><button class="nav-btn" id="nav-phim" onclick="filterCategory('Phim')">🎬 Phim</button></li>
-                <li><button class="nav-btn" id="nav-fav" onclick="switchTab('favorites')">❤️ Yêu thích</button></li>
-                <li><button class="nav-btn" id="nav-history" onclick="switchTab('history')">🕒 Lịch sử</button></li>
-                <li><button class="btn-auth-header" id="btn-auth-trigger" onclick="openAuthModal()">🔑 Đăng nhập</button></li>
+                <li><button class="nav-btn active" id="btn-truyen" onclick="filterCategory('Truyện')">📖 Truyện</button></li>
+                <li><button class="nav-btn" id="btn-phim" onclick="filterCategory('Phim')">🎬 Phim</button></li>
+                <li><button class="nav-btn" id="btn-acc" onclick="filterCategory('Acc VIP')">💎 Acc VIP</button></li>
+                <li><button class="btn-auth-header" id="btn-auth-trigger" onclick="openAuthModal()">🔑 Đăng nhập / Đăng ký (Tùy chọn)</button></li>
             </ul>
         </div>
     </header>
 
-    <!-- HERO & BANNER THÔNG BÁO -->
     <section class="hero">
-        <!-- Ảnh Thông Báo -->
+        <div class="visit-counter-badge">
+            ⚡ Lượt truy cập website: <span id="visit-count" style="color: #fff; font-size: 15px;">...</span>
+        </div>
+
         <div class="notice-banner-wrapper">
-            <img src="https://i.postimg.cc/T1tyZL0t/1FAB0943-6555-42CB-8034-1CFC44E8C379.png" alt="Thông Báo Kaito Review" class="notice-banner-img" onerror="this.style.display='none'">
+            <img src="https://i.postimg.cc/T1tyZL0t/1FAB0943-6555-42CB-8034-1CFC44E8C379.png" class="notice-banner-img" onerror="this.style.display='none'">
         </div>
 
-        <h1>Kaito Review - Khám Phá Thế Giới Giải Trí</h1>
+        <h1>Khám Phá Thế Giới Phim & Truyện</h1>
 
-        <!-- Thanh Tìm Kiếm -->
-        <div class="search-wrapper">
-            <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm phim, truyện tranh..." oninput="handleSearch()">
-            <button id="search-clear" class="search-clear-btn" onclick="clearSearch()">✕</button>
-        </div>
-
-        <!-- Các Nút Lọc Cố Định: Chỉ giữ 2 danh mục Truyện & Phim -->
         <div class="category-pills">
-            <button class="pill active" onclick="filterCategory('All')">✨ Tất cả</button>
-            <button class="pill" onclick="filterCategory('Truyen')">📖 Truyện</button>
-            <button class="pill" onclick="filterCategory('Phim')">🎬 Phim</button>
+            <button class="pill active" id="pill-truyen" onclick="filterCategory('Truyện')">📖 Truyện Tranh</button>
+            <button class="pill" id="pill-phim" onclick="filterCategory('Phim')">🎬 Review Phim</button>
+            <button class="pill" id="pill-acc" onclick="filterCategory('Acc VIP')">💎 Acc VIP</button>
         </div>
     </section>
 
-    <!-- KHU VỰC HIỂN THỊ VIDEO -->
     <main class="main-container">
         <div class="section-header">
-            <div class="section-title" id="section-title">🔥 Danh Sách Nội Dung</div>
-            <select class="sort-select" id="sort-select" onchange="handleSort()">
-                <option value="newest">Mới nhất</option>
-                <option value="views">Lượt xem nhiều nhất</option>
-                <option value="az">Tên A - Z</option>
-            </select>
+            <div class="section-title" id="section-title">📖 Danh Mục: Truyện Tranh</div>
         </div>
-
         <div class="video-grid" id="video-grid">
-            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-sub);">
-                Đang tải dữ liệu từ Google Sheets...
-            </div>
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-sub);">Đang tải dữ liệu từ Google Sheets...</div>
         </div>
     </main>
 
-    <!-- MODAL XEM VIDEO -->
-    <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <!-- MODAL XEM CHI TIẾT -->
+    <div class="modal-overlay" id="video-modal">
         <div class="modal-container">
-            <button class="modal-close-btn" onclick="closeModal()">✕</button>
-            <div class="player-wrapper" id="player-wrapper"></div>
-            <div class="modal-content">
-                <div class="modal-title" id="modal-title"></div>
-                <div style="color: var(--text-sub); line-height: 1.6;" id="modal-desc"></div>
-            </div>
+            <button class="modal-close-btn" onclick="closeVideoModal()">✕</button>
+            <div id="player-box" style="width:100%; aspect-ratio:16/9; background:#000; margin-bottom:15px; border-radius:12px; overflow:hidden;"></div>
+            <h2 id="modal-video-title" style="margin-bottom:10px;"></h2>
+            <p id="modal-video-desc" style="color:var(--text-sub); line-height:1.6;"></p>
         </div>
     </div>
 
-    <!-- MODAL ĐĂNG KÝ / ĐĂNG NHẬP -->
-    <div class="modal-overlay" id="auth-modal-overlay" onclick="closeAuthOnOverlay(event)">
+    <!-- MODAL ĐĂNG NHẬP / ĐĂNG KÝ (LƯU VÀO SHEET Users) -->
+    <div class="modal-overlay" id="auth-modal">
         <div class="auth-container">
             <button class="modal-close-btn" onclick="closeAuthModal()">✕</button>
+            
             <div class="auth-tabs">
-                <button class="auth-tab-btn active" id="tab-login-btn" onclick="switchAuthTab('login')">Đăng Nhập</button>
-                <button class="auth-tab-btn" id="tab-register-btn" onclick="switchAuthTab('register')">Đăng Ký</button>
+                <button class="auth-tab-btn active" id="tab-login" onclick="switchAuthTab('login')">Đăng Nhập</button>
+                <button class="auth-tab-btn" id="tab-register" onclick="switchAuthTab('register')">Đăng Ký Mới</button>
             </div>
 
-            <!-- Form Đăng Nhập -->
-            <form class="auth-form" id="form-login" onsubmit="handleLogin(event)">
-                <input type="text" id="login-user" class="auth-input" placeholder="Tên đăng nhập hoặc Email" required>
-                <input type="password" id="login-pass" class="auth-input" placeholder="Mật khẩu" required>
-                <button type="submit" class="auth-submit-btn">Đăng Nhập</button>
-            </form>
-
-            <!-- Form Đăng Ký -->
-            <form class="auth-form" id="form-register" style="display: none;" onsubmit="handleRegister(event)">
-                <input type="text" id="reg-user" class="auth-input" placeholder="Tên tài khoản mới" required>
-                <input type="password" id="reg-pass" class="auth-input" placeholder="Mật khẩu" required>
-                <button type="submit" class="auth-submit-btn">Đăng Ký Tài Khoản</button>
-            </form>
+            <p style="font-size:12px; color:var(--text-sub); margin-bottom:15px;">Dành cho người dùng muốn lưu tài khoản & lịch sử cá nhân lên Google Sheets.</p>
+            
+            <input type="text" id="auth-username" class="auth-input" placeholder="Tên tài khoản">
+            <input type="password" id="auth-password" class="auth-input" placeholder="Mật khẩu">
+            <button class="auth-submit-btn" id="auth-btn-action" onclick="handleAuthSubmit()">Xác Nhận Đăng Nhập</button>
         </div>
     </div>
 
-    <!-- MOBILE BOTTOM NAV -->
     <nav class="bottom-nav">
-        <button class="bottom-nav-item active" onclick="switchTab('home')">
-            <span>🏠</span><span>Trang chủ</span>
-        </button>
-        <button class="bottom-nav-item" onclick="filterCategory('Truyen')">
-            <span>📖</span><span>Truyện</span>
-        </button>
-        <button class="bottom-nav-item" onclick="filterCategory('Phim')">
-            <span>🎬</span><span>Phim</span>
-        </button>
-        <button class="bottom-nav-item" onclick="switchTab('favorites')">
-            <span>❤️</span><span>Yêu thích</span>
-        </button>
-        <button class="bottom-nav-item" onclick="openAuthModal()">
-            <span>👤</span><span>Tài khoản</span>
-        </button>
+        <button class="bottom-nav-item active" onclick="filterCategory('Truyện')"><span>📖</span><span>Truyện</span></button>
+        <button class="bottom-nav-item" onclick="filterCategory('Phim')"><span>🎬</span><span>Phim</span></button>
+        <button class="bottom-nav-item" onclick="filterCategory('Acc VIP')"><span>💎</span><span>Acc VIP</span></button>
+        <button class="bottom-nav-item" onclick="openAuthModal()"><span>👤</span><span>Tài khoản</span></button>
     </nav>
 
     <div class="toast" id="toast"></div>
 
     <script>
-        // LINK API GOOGLE APPS SCRIPT CỦA BẠN
         const API_URL = 'https://script.google.com/macros/s/AKfycbzuU0M9xSDUtqtu-Hzx9SHhfFTMtWTsOKH7ewkBhgh-pG_Gs4tZyXJhm1tdhLPrmLdE/exec';
-
+        
         let allVideos = [];
-        let currentCategory = 'All';
-        let currentSearch = '';
-        let currentSort = 'newest';
-        let currentTab = 'home';
-
-        let favorites = JSON.parse(localStorage.getItem('kaito_favorites') || '[]');
-        let historyList = JSON.parse(localStorage.getItem('kaito_history') || '[]');
-        let currentUser = JSON.parse(localStorage.getItem('kaito_current_user') || 'null');
+        let currentCategory = 'Truyện';
+        let currentUser = localStorage.getItem('kaito_active_user');
+        let authMode = 'login'; // 'login' hoặc 'register'
 
         document.addEventListener('DOMContentLoaded', () => {
             checkUserStatus();
             loadDataFromSheets();
         });
 
-        // ĐỌC DỮ LIỆU TỪ GOOGLE SHEETS
         async function loadDataFromSheets() {
-            const grid = document.getElementById('video-grid');
             try {
                 const res = await fetch(API_URL);
                 const data = await res.json();
                 
-                // Đã khóa hoàn toàn video mẫu: chỉ đọc từ Sheets
-                allVideos = Array.isArray(data) ? data : [];
-                renderVideos();
+                if (data.totalVisits) {
+                    document.getElementById('visit-count').innerText = data.totalVisits.toLocaleString() + " lượt";
+                }
+
+                allVideos = Array.isArray(data.videos) ? data.videos : [];
+                renderGrid();
             } catch (err) {
-                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--text-sub);">
-                    Chưa có video nào trong Google Sheets. Bạn hãy thêm dòng mới vào file Google Sheets nhé!
-                </div>`;
+                document.getElementById('video-grid').innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--danger);">Không thể kết nối dữ liệu!</div>`;
             }
         }
 
-        // XỬ LÝ HIỂN THỊ
-        function renderVideos() {
+        function renderGrid() {
             const grid = document.getElementById('video-grid');
-            let filtered = [...allVideos];
+            let list = allVideos.filter(v => (v.category || '').toLowerCase().includes(currentCategory.toLowerCase()));
 
-            if (currentTab === 'favorites') {
-                filtered = filtered.filter(v => favorites.includes(v.id));
-                document.getElementById('section-title').innerText = '❤️ Danh Sách Yêu Thích';
-            } else if (currentTab === 'history') {
-                filtered = historyList.map(id => allVideos.find(v => v.id == id)).filter(Boolean);
-                document.getElementById('section-title').innerText = '🕒 Lịch Sử Đã Xem';
-            } else {
-                document.getElementById('section-title').innerText = '🔥 Danh Sách Nội Dung';
-            }
-
-            if (currentCategory !== 'All') {
-                filtered = filtered.filter(v => (v.category || '').toLowerCase().includes(currentCategory.toLowerCase()));
-            }
-
-            if (currentSearch.trim() !== '') {
-                const q = currentSearch.toLowerCase();
-                filtered = filtered.filter(v => (v.title || '').toLowerCase().includes(q));
-            }
-
-            if (currentSort === 'views') {
-                filtered.sort((a,b) => (b.clicks || 0) - (a.clicks || 0));
-            } else if (currentSort === 'az') {
-                filtered.sort((a,b) => (a.title || '').localeCompare(b.title || ''));
-            }
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px; color:var(--text-sub);">
-                    Không tìm thấy nội dung nào!
-                </div>`;
+            if (list.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-sub); padding: 50px;">Chưa có bài đăng nào trong mục ${currentCategory}.</div>`;
                 return;
             }
 
-            grid.innerHTML = filtered.map(v => {
-                const isFav = favorites.includes(v.id);
-                return `
-                <div class="card" onclick="openVideoModal(${v.id})">
+            grid.innerHTML = list.map(v => `
+                <div class="card" onclick="openVideoDetail(${v.id})">
                     <div class="card-thumb-wrapper">
-                        <img class="card-thumb" src="${v.thumbnail || ''}" alt="${v.title}" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800';">
+                        <img class="card-thumb" src="${v.thumbnail}" alt="${v.title}" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800'">
                         <span class="card-badge">${v.category || 'Nội dung'}</span>
-                        <button class="card-fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(event, ${v.id})">
-                            ${isFav ? '❤️' : '🤍'}
-                        </button>
                     </div>
                     <div class="card-body">
-                        <div class="card-title">${v.title || 'Chưa có tiêu đề'}</div>
+                        <div class="card-title">${v.title}</div>
+                        <div class="card-desc">${v.desc || 'Xem nội dung chi tiết tại Kaito Review.'}</div>
                         <div class="card-meta">
                             <span>👁️ ${v.clicks || 0} lượt xem</span>
-                            <span>Xem Ngay ➔</span>
+                            <span style="color:var(--primary); font-weight:bold;">Xem Ngay ➔</span>
                         </div>
                     </div>
-                </div>`;
-            }).join('');
-        }
-
-        // TÌM KIẾM VÀ LỌC
-        function handleSearch() {
-            currentSearch = document.getElementById('search-input').value;
-            document.getElementById('search-clear').style.display = currentSearch ? 'block' : 'none';
-            renderVideos();
-        }
-
-        function clearSearch() {
-            document.getElementById('search-input').value = '';
-            currentSearch = '';
-            document.getElementById('search-clear').style.display = 'none';
-            renderVideos();
+                </div>
+            `).join('');
         }
 
         function filterCategory(cat) {
             currentCategory = cat;
-            currentTab = 'home';
-            document.querySelectorAll('.pill').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'All' && btn.innerText.includes('Tất cả')));
-            });
-            renderVideos();
+            document.getElementById('pill-truyen').classList.toggle('active', cat === 'Truyện');
+            document.getElementById('pill-phim').classList.toggle('active', cat === 'Phim');
+            document.getElementById('pill-acc').classList.toggle('active', cat === 'Acc VIP');
+            
+            document.getElementById('btn-truyen').classList.toggle('active', cat === 'Truyện');
+            document.getElementById('btn-phim').classList.toggle('active', cat === 'Phim');
+            document.getElementById('btn-acc').classList.toggle('active', cat === 'Acc VIP');
+            
+            document.getElementById('section-title').innerText = `🔥 Danh Mục: ${cat}`;
+            renderGrid();
         }
 
-        function switchTab(tab) {
-            currentTab = tab;
-            renderVideos();
-        }
+        /* AI VÀO WEB CŨNG XEM ĐƯỢC NGAY KHÔNG CẦN ĐĂNG NHẬP */
+        function openVideoDetail(id) {
+            const item = allVideos.find(v => v.id == id);
+            if (!item) return;
 
-        function handleSort() {
-            currentSort = document.getElementById('sort-select').value;
-            renderVideos();
-        }
-
-        // YÊU THÍCH VÀ LỊCH SỬ
-        function toggleFav(e, id) {
-            e.stopPropagation();
-            const idx = favorites.indexOf(id);
-            if (idx > -1) {
-                favorites.splice(idx, 1);
-                showToast('Đã xóa khỏi yêu thích');
-            } else {
-                favorites.push(id);
-                showToast('Đã thêm vào yêu thích ❤️');
-            }
-            localStorage.setItem('kaito_favorites', JSON.stringify(favorites));
-            renderVideos();
-        }
-
-        function openVideoModal(id) {
-            const v = allVideos.find(item => item.id == id);
-            if (!v) return;
-
-            // Ghi lịch sử
-            if (!historyList.includes(id)) historyList.unshift(id);
-            localStorage.setItem('kaito_history', JSON.stringify(historyList));
-
-            // Tăng lượt xem
-            v.clicks = (parseInt(v.clicks) || 0) + 1;
+            // Gửi cộng 1 lượt xem về Google Sheets
+            item.clicks = (parseInt(item.clicks) || 0) + 1;
             fetch(API_URL, {
                 method: 'POST',
-                body: JSON.stringify({ id: v.id }),
+                body: JSON.stringify({ action: 'click', id: item.id }),
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' }
             }).catch(() => {});
 
-            document.getElementById('modal-title').innerText = v.title;
-            document.getElementById('modal-desc').innerText = v.desc || 'Xem review chi tiết tại Kaito Review.';
+            document.getElementById('modal-video-title').innerText = item.title;
+            document.getElementById('modal-video-desc').innerText = item.desc || 'Nội dung chi tiết.';
 
-            let url = v.videoUrl || '';
+            const playerBox = document.getElementById('player-box');
+            let url = item.videoUrl || '';
             if (url.includes('youtube.com/watch?v=')) url = url.replace('watch?v=', 'embed/');
 
-            const wrapper = document.getElementById('player-wrapper');
             if (url.includes('embed') || url.includes('youtube.com')) {
-                wrapper.innerHTML = `<iframe src="${url}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+                playerBox.innerHTML = `<iframe src="${url}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>`;
             } else {
-                wrapper.innerHTML = `<video src="${url}" controls autoplay style="width:100%;height:100%;"></video>`;
+                playerBox.innerHTML = `<a href="${url}" target="_blank" style="display:flex;align-items:center;justify-content:center;height:100%;color:#fff;font-weight:bold;text-decoration:none;background:var(--primary);">▶ Mở Liên Kết Xem Trực Tiếp</a>`;
             }
 
-            document.getElementById('modal-overlay').classList.add('active');
+            document.getElementById('video-modal').classList.add('active');
         }
 
-        function closeModal() {
-            document.getElementById('modal-overlay').classList.remove('active');
-            document.getElementById('player-wrapper').innerHTML = '';
+        function closeVideoModal() {
+            document.getElementById('video-modal').classList.remove('active');
+            document.getElementById('player-box').innerHTML = '';
         }
 
-        function closeModalOnOverlay(e) {
-            if (e.target.id === 'modal-overlay') closeModal();
+        /* QUẢN LÝ TÀI KHOẢN KẾT NỐI VỚI TAB Users TRÊN GOOGLE SHEETS */
+        function openAuthModal() { document.getElementById('auth-modal').classList.add('active'); }
+        function closeAuthModal() { document.getElementById('auth-modal').classList.remove('active'); }
+
+        function switchAuthTab(mode) {
+            authMode = mode;
+            document.getElementById('tab-login').classList.toggle('active', mode === 'login');
+            document.getElementById('tab-register').classList.toggle('active', mode === 'register');
+            document.getElementById('auth-btn-action').innerText = mode === 'login' ? 'Xác Nhận Đăng Nhập' : 'Tạo Tài Khoản Mới';
         }
 
-        // ĐĂNG NHẬP / ĐĂNG KÝ
-        function openAuthModal() {
-            document.getElementById('auth-modal-overlay').classList.add('active');
-        }
+        async function handleAuthSubmit() {
+            const user = document.getElementById('auth-username').value.trim();
+            const pass = document.getElementById('auth-password').value.trim();
 
-        function closeAuthModal() {
-            document.getElementById('auth-modal-overlay').classList.remove('active');
-        }
+            if (!user || !pass) { showToast('Vui lòng nhập đầy đủ Tên & Mật khẩu!'); return; }
 
-        function closeAuthOnOverlay(e) {
-            if (e.target.id === 'auth-modal-overlay') closeAuthModal();
-        }
+            showToast('Đang kết nối với Google Sheets...');
 
-        function switchAuthTab(tab) {
-            document.getElementById('tab-login-btn').classList.toggle('active', tab === 'login');
-            document.getElementById('tab-register-btn').classList.toggle('active', tab === 'register');
-            document.getElementById('form-login').style.display = tab === 'login' ? 'flex' : 'none';
-            document.getElementById('form-register').style.display = tab === 'register' ? 'flex' : 'none';
-        }
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: authMode, username: user, password: pass }),
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+                });
+                const result = await res.json();
 
-        function handleLogin(e) {
-            e.preventDefault();
-            const username = document.getElementById('login-user').value;
-            currentUser = { name: username };
-            localStorage.setItem('kaito_current_user', JSON.stringify(currentUser));
-            checkUserStatus();
-            closeAuthModal();
-            showToast(`Xin chào, ${username}! 👋`);
-        }
-
-        function handleRegister(e) {
-            e.preventDefault();
-            const username = document.getElementById('reg-user').value;
-            currentUser = { name: username };
-            localStorage.setItem('kaito_current_user', JSON.stringify(currentUser));
-            checkUserStatus();
-            closeAuthModal();
-            showToast(`Tạo tài khoản ${username} thành công! 🎉`);
+                if (result.status === 'success') {
+                    localStorage.setItem('kaito_active_user', user);
+                    currentUser = user;
+                    checkUserStatus();
+                    closeAuthModal();
+                    showToast(authMode === 'login' ? `Xin chào ${user}! 🎉` : 'Tạo tài khoản thành công!');
+                } else {
+                    showToast(result.message || 'Thao tác thất bại!');
+                }
+            } catch (err) {
+                showToast('Lỗi kết nối máy chủ!');
+            }
         }
 
         function checkUserStatus() {
             const btn = document.getElementById('btn-auth-trigger');
             if (currentUser) {
-                btn.innerText = `👤 ${currentUser.name} (Thoát)`;
+                btn.innerText = `👤 ${currentUser} (Đăng xuất)`;
                 btn.onclick = () => {
-                    localStorage.removeItem('kaito_current_user');
+                    localStorage.removeItem('kaito_active_user');
                     currentUser = null;
                     checkUserStatus();
                     showToast('Đã đăng xuất tài khoản!');
                 };
             } else {
-                btn.innerText = '🔑 Đăng nhập';
+                btn.innerText = '🔑 Đăng nhập / Đăng ký (Tùy chọn)';
                 btn.onclick = openAuthModal;
             }
         }
 
         function showToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.innerText = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
+            const t = document.getElementById('toast');
+            t.innerText = msg; t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
         }
     </script>
 </body>
