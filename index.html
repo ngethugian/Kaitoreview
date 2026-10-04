@@ -56,7 +56,7 @@
         .search-input { width: 100%; padding: 12px 20px 12px 45px; border-radius: 30px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-main); font-size: 15px; outline: none; transition: 0.3s; box-shadow: var(--shadow);}
         .search-input:focus { border-color: var(--primary); }
 
-        /* BANNER ẢNH (MỚI) */
+        /* BANNER ẢNH TUYỆT ĐẸP */
         .banner { max-width: 1200px; margin: 0 auto 30px; padding: 0 20px; text-align: center; }
         .banner-inner { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); line-height: 0; }
         .banner-img-main { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 20px; border: 1px solid var(--border-color); }
@@ -114,7 +114,7 @@
             .grid-container { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 15px; }
             .card-info { padding: 10px; }
             .card-title { font-size: 13px; }
-            .btn-explore { bottom: 10px; padding: 8px 20px; font-size: 13px; } /* Chỉnh nút nhỏ lại trên đt */
+            .btn-explore { bottom: 10px; padding: 8px 20px; font-size: 13px; }
         }
 
         /* TRANG CHI TIẾT VIDEO (SPA MÀN HÌNH ĐẦY ĐỦ) */
@@ -219,7 +219,7 @@
     <!-- TRANG CHI TIẾT VIDEO (DETAIL VIEW) -->
     <div id="detail-view">
         <div class="player-wrapper" id="player-container">
-            <!-- Trình phát sẽ được chèn vào đây -->
+            <!-- Trình phát sẽ được chèn vào đây tự động -->
         </div>
 
         <div class="detail-info">
@@ -279,6 +279,7 @@
     <div class="toast" id="toast">Thông báo</div>
 
     <script>
+        // MÃ API CỦA BẠN - Đừng thay đổi
         const API_URL = 'https://script.google.com/macros/s/AKfycbzuU0M9xSDUtqtu-Hzx9SHhfFTMtWTsOKH7ewkBhgh-pG_Gs4tZyXJhm1tdhLPrmLdE/exec';
         
         let allData = [];
@@ -358,12 +359,12 @@
             document.getElementById('main-view').style.display = 'block';
             document.getElementById('detail-view').style.display = 'none';
             document.getElementById('list-view').style.display = 'none';
-            document.getElementById('player-container').innerHTML = ''; // Tắt video
+            document.getElementById('player-container').innerHTML = ''; // Tắt video để tránh phát ngầm
             updateBottomNav('nav-home');
             window.scrollTo(0,0);
         }
 
-        // TRANG CHI TIẾT & TRÌNH PHÁT
+        // TRANG CHI TIẾT & TRÌNH PHÁT (ĐÃ NÂNG CẤP XỬ LÝ NHIỀU LOẠI LINK)
         function openDetail(id) {
             currentItem = allData.find(v => v.id == id);
             if(!currentItem) return;
@@ -383,25 +384,55 @@
             checkFavoriteStatus();
 
             const playerWrap = document.getElementById('player-container');
-            let url = currentItem.videoUrl;
+            let url = (currentItem.videoUrl || '').trim();
 
-            // CODE XỬ LÝ NHẬN DIỆN MỌI LOẠI VIDEO
-            if(url.includes('.mp3') || currentItem.category.toLowerCase().includes('audio')) {
+            // Hàm bóc tách ID Youtube chuẩn 100% mọi thể loại link
+            function getYouTubeEmbedUrl(ytUrl) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
+                const match = ytUrl.match(regExp);
+                if (match && match[2].length === 11) {
+                    return `https://www.youtube.com/embed/${match[2]}`;
+                }
+                return null;
+            }
+
+            const ytEmbed = getYouTubeEmbedUrl(url);
+
+            // 1. Xử lý Video YOUTUBE
+            if (ytEmbed) {
+                playerWrap.innerHTML = `
+                    <iframe 
+                        src="${ytEmbed}?autoplay=1&rel=0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen 
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>`;
+            }
+            // 2. Xử lý Audio
+            else if (url.includes('.mp3') || (currentItem.category || '').toLowerCase().includes('audio')) {
                 playerWrap.innerHTML = `
                     <div style="background:var(--bg-surface); width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px;">
                         <img src="${currentItem.thumbnail}" style="width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:20px; animation: spin 10s linear infinite;">
                         <audio controls autoplay style="width: 80%;"><source src="${url}" type="audio/mpeg">Trình duyệt không hỗ trợ Audio.</audio>
                     </div>`;
             } 
-            else if(url.toLowerCase().endsWith('.mp4')) {
+            // 3. Xử lý link MP4 trực tiếp (Catbox.moe, Telegram, v.v.)
+            else if (url.toLowerCase().endsWith('.mp4')) {
                 playerWrap.innerHTML = `<video controls autoplay style="width: 100%; height: 100%; object-fit: contain; background: #000;"><source src="${url}" type="video/mp4"></video>`;
             }
-            else if(url.includes('youtube.com/watch?v=')) {
-                url = url.replace('watch?v=', 'embed/');
-                playerWrap.innerHTML = `<iframe src="${url}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+            // 4. Xử lý Google Drive
+            else if (url.includes('drive.google.com')) {
+                let driveId = '';
+                const match1 = url.match(/\/file\/d\/([^\/\?]+)/);
+                const match2 = url.match(/id=([^\&]+)/);
+                if (match1) driveId = match1[1];
+                else if (match2) driveId = match2[1];
+
+                let cleanDriveUrl = driveId ? `https://drive.google.com/file/d/${driveId}/preview` : url;
+                playerWrap.innerHTML = `<iframe src="${cleanDriveUrl}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
             }
+            // 5. Các nguồn nhúng khác
             else {
-                // Áp dụng cho Link Google Drive (đã đổi preview), Streamtape, v.v..
                 playerWrap.innerHTML = `<iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
             }
         }
