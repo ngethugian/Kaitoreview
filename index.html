@@ -32,7 +32,7 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Be Vietnam Pro', sans-serif; }
         
-        /* Chống giật trang khi vuốt cuộn trên điện thoại */
+        /* Chống giật/reload trang khi vuốt cuộn trên điện thoại */
         html, body { 
             overscroll-behavior-y: contain; 
             background-color: var(--bg-body); 
@@ -63,7 +63,7 @@
         .search-input { width: 100%; padding: 12px 20px 12px 45px; border-radius: 30px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-main); font-size: 15px; outline: none; transition: 0.3s; box-shadow: var(--shadow);}
         .search-input:focus { border-color: var(--primary); }
 
-        /* BANNER ẢNH */
+        /* BANNER ẢNH BANNER */
         .banner { max-width: 1200px; margin: 0 auto 25px; padding: 0 20px; text-align: center; }
         .banner-inner { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); line-height: 0; }
         .banner-img-main { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 20px; border: 1px solid var(--border-color); }
@@ -101,7 +101,7 @@
         .cat-pill { flex-shrink: 0; padding: 10px 22px; border-radius: 20px; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-sub); font-weight: 600; font-size: 14px; cursor: pointer; transition: 0.3s; }
         .cat-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-        /* THẺ BÀI VIẾT TĂNG KÍCH THƯỚC RÕ NÉT */
+        /* THẺ BÀI VIẾT TĂNG KÍCH THƯỚC TO RÕ */
         .section-title { max-width: 1200px; margin: 0 auto 15px; padding: 0 20px; font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .grid-container { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; }
         
@@ -285,7 +285,7 @@
             'https://vt.tiktok.com/ZS9h36wYouDLb-ojzE1/',
             'https://vt.tiktok.com/ZS9hwC35QqF5E-27I2e/'
         ];
-        const AD_COOLDOWN_MS = 10 * 60 * 1000; // ĐÚNG 10 PHÚT CHỜ GIỮA CÁC LẦN PHÁT QUẢNG CÁO
+        const AD_COOLDOWN_MS = 10 * 60 * 1000; // CHỜ ĐÚNG 10 PHÚT GIỮA CÁC LẦN PHÁT QUẢNG CÁO
 
         let allData = [];
         let currentItem = null;
@@ -381,19 +381,17 @@
             updateBottomNav('nav-home');
         }
 
-        // HỆ THỐNG XỬ LÝ QUẢNG CÁO CHUẨN 10 PHÚT LƯU KHO LOCALSTORAGE
+        // HỆ THỐNG XỬ LÝ QUẢNG CÁO CHUẨN 10 PHÚT
         function tryTriggerAd() {
             if (AD_LINKS.length === 0) return;
             
             let lastAdTime = parseInt(localStorage.getItem('kaito_last_ad_time') || '0');
             let now = Date.now();
 
-            // Chỉ mở quảng cáo nếu đã trôi qua ĐỦ 10 PHÚT từ lần bấm trước
             if (now - lastAdTime >= AD_COOLDOWN_MS) {
                 let currentAdIndex = parseInt(localStorage.getItem('kaito_ad_index') || '0');
                 const adUrl = AD_LINKS[currentAdIndex];
                 
-                // Lưu vị trí quảng cáo tiếp theo & Lưu thời gian vừa mở
                 localStorage.setItem('kaito_ad_index', (currentAdIndex + 1) % AD_LINKS.length);
                 localStorage.setItem('kaito_last_ad_time', now.toString());
 
@@ -425,13 +423,13 @@
 
             const playerWrap = document.getElementById('player-container');
             
-            // Nếu là video đang phát sẵn thì không nạp lại để tránh ngắt quãng
             if (isSameVideo && playerWrap.innerHTML.trim() !== '') {
                 return;
             }
 
             let url = (currentItem.videoUrl || '').trim();
 
+            // 1. Hàm bóc tách YouTube
             function getYouTubeEmbedUrl(ytUrl) {
                 const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
                 const match = ytUrl.match(regExp);
@@ -441,8 +439,25 @@
                 return null;
             }
 
-            const ytEmbed = getYouTubeEmbedUrl(url);
+            // 2. Hàm bóc tách Bilibili (hỗ trợ b23.tv & bilibili.com)
+            function getBilibiliEmbedUrl(bUrl) {
+                if (!bUrl.includes('bilibili') && !bUrl.includes('b23.tv')) return null;
+                
+                // Nếu đã là link nhúng player sẵn
+                if (bUrl.includes('player.bilibili.com')) return bUrl;
 
+                // Tìm bvid (Ví dụ: BV1xx411c7m9)
+                const bvMatch = bUrl.match(/(BV[a-zA-Z0-9]+)/i);
+                if (bvMatch) {
+                    return `https://player.bilibili.com/player.html?bvid=${bvMatch[1]}&high_quality=1&danmaku=0`;
+                }
+                return null;
+            }
+
+            const ytEmbed = getYouTubeEmbedUrl(url);
+            const biliEmbed = getBilibiliEmbedUrl(url);
+
+            // Xử lý phát nguồn tương ứng
             if (ytEmbed) {
                 playerWrap.innerHTML = `
                     <iframe 
@@ -450,6 +465,17 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen 
                         referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>`;
+            }
+            else if (biliEmbed) {
+                playerWrap.innerHTML = `
+                    <iframe 
+                        src="${biliEmbed}" 
+                        scrolling="no" 
+                        border="0" 
+                        frameborder="no" 
+                        framespacing="0" 
+                        allowfullscreen="true">
                     </iframe>`;
             }
             else if (url.includes('.mp3') || isCategoryMatch(currentItem.category, 'Audio')) {
