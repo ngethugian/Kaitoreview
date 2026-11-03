@@ -41,16 +41,13 @@
         }
         a { text-decoration: none; color: inherit; }
 
-        /* LOADING SPINNER */
         #global-loader { position: fixed; inset: 0; background: var(--bg-body); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.5s; }
         .spinner { width: 50px; height: 50px; border: 5px solid var(--border-color); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px;}
         @keyframes spin { to { transform: rotate(360deg); } }
-        
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
         audio::-webkit-media-controls-enclosure { border-radius: 15px; background-color: var(--bg-surface); }
 
-        /* HEADER */
         header { position: sticky; top: 0; z-index: 1000; background: var(--bg-header); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 12px 20px; transition: 0.3s;}
         .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: var(--text-main); }
@@ -59,32 +56,27 @@
         .icon-btn { background: none; border: none; color: var(--text-main); font-size: 20px; cursor: pointer; transition: 0.3s; }
         .icon-btn:hover { color: var(--primary); }
         
-        /* USER AVATAR HEADER */
         .user-profile-btn { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; font-weight: bold; background: var(--bg-surface); padding: 5px 12px; border-radius: 20px; border: 1px solid var(--border-color); transition: 0.3s;}
         .user-profile-btn:hover { border-color: var(--primary); }
         .user-profile-btn img { width: 24px; height: 24px; border-radius: 50%; }
 
-        /* THANH TÌM KIẾM */
         .search-bar-container { max-width: 1200px; margin: 15px auto; padding: 0 20px; }
         .search-input-wrapper { position: relative; width: 100%; }
         .search-input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-sub); }
         .search-input { width: 100%; padding: 12px 20px 12px 45px; border-radius: 30px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-main); font-size: 15px; outline: none; transition: 0.3s; box-shadow: var(--shadow);}
         .search-input:focus { border-color: var(--primary); }
 
-        /* BANNER ẢNH BANNER */
         .banner { max-width: 1200px; margin: 0 auto 25px; padding: 0 20px; text-align: center; }
         .banner-inner { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); line-height: 0; }
         .banner-img-main { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 20px; border: 1px solid var(--border-color); }
         .btn-explore { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(139, 92, 246, 0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; padding: 10px 30px; border-radius: 25px; font-weight: bold; font-size: 15px; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: 0.3s; white-space: nowrap; line-height: normal; display: flex; align-items: center; gap: 8px;}
         .btn-explore:hover { background: var(--primary); transform: translateX(-50%) translateY(-3px); border-color: rgba(255, 255, 255, 0.6); }
 
-        /* BỘ LỌC DANH MỤC */
         .category-scroll { display: flex; gap: 10px; overflow-x: auto; padding: 0 20px 15px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; }
         .category-scroll::-webkit-scrollbar { display: none; }
         .cat-pill { flex-shrink: 0; padding: 10px 22px; border-radius: 20px; background: var(--bg-surface); border: 1px solid var(--border-color); color: var(--text-sub); font-weight: 600; font-size: 14px; cursor: pointer; transition: 0.3s; }
         .cat-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-        /* THẺ BÀI VIẾT */
         .section-title { max-width: 1200px; margin: 0 auto 15px; padding: 0 20px; font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .grid-container { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; }
         
@@ -107,7 +99,6 @@
             .btn-explore { bottom: 12px; padding: 8px 18px; font-size: 13px; }
         }
 
-        /* TRANG CHI TIẾT VIDEO (SPA) */
         #detail-view { display: none; padding-top: 10px; padding-bottom: 50px;}
         .player-wrapper { max-width: 1000px; margin: 0 auto; background: #000; aspect-ratio: 16/9; position: relative; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);}
         .player-wrapper iframe, .player-wrapper video { width: 100%; height: 100%; border: none; }
@@ -123,20 +114,18 @@
 
         .detail-desc { font-size: 15px; line-height: 1.6; color: var(--text-sub); background: var(--bg-surface); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color);}
 
-        /* KHU VỰC BÌNH LUẬN (MỚI) */
+        /* KHU VỰC BÌNH LUẬN */
         .comment-section { margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px; }
         .comment-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         
         .require-login-box { text-align: center; padding: 25px; background: var(--bg-surface); border-radius: 12px; border: 1px dashed var(--border-color); }
         .require-login-box p { color: var(--text-sub); margin-bottom: 15px; }
         .btn-login { background: var(--primary); color: #fff; border: none; padding: 10px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-login:hover { background: var(--primary-hover); transform: translateY(-2px); }
-
+        
         .comment-input-box { display: none; background: var(--bg-surface); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 20px; }
         .comment-input-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: bold; font-size: 14px; }
         .comment-input-header img { width: 30px; height: 30px; border-radius: 50%; }
         .comment-textarea { width: 100%; background: var(--bg-body); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 8px; padding: 12px; font-size: 14px; resize: none; min-height: 80px; outline: none; margin-bottom: 10px; }
-        .comment-textarea:focus { border-color: var(--primary); }
         .btn-submit-comment { background: var(--primary); color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; float: right; }
 
         .comment-list { display: flex; flex-direction: column; gap: 15px; }
@@ -147,13 +136,12 @@
         .comment-date { font-size: 11px; color: var(--text-sub); font-weight: normal; }
         .comment-text { font-size: 14px; color: var(--text-sub); line-height: 1.5; word-break: break-word; }
 
-        /* MODAL ĐĂNG NHẬP / ĐĂNG KÝ (MỚI) */
+        /* MODAL ĐĂNG NHẬP */
         .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 99999; justify-content: center; align-items: center; backdrop-filter: blur(5px); padding: 20px;}
         .modal-box { background: var(--bg-surface); width: 100%; max-width: 400px; padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
         .modal-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; color: var(--text-sub); cursor: pointer; }
         .modal-title { font-size: 22px; font-weight: bold; margin-bottom: 25px; color: var(--text-main); }
         .modal-input { width: 100%; padding: 12px 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid var(--border-color); background: var(--bg-body); color: var(--text-main); font-size: 15px; outline: none; }
-        .modal-input:focus { border-color: var(--primary); }
         .modal-btn { width: 100%; background: var(--primary); color: #fff; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 16px; border: none; cursor: pointer; margin-bottom: 15px; }
 
         /* BOTTOM NAVIGATION */
@@ -161,14 +149,11 @@
         .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-sub); font-size: 11px; gap: 4px; cursor: pointer; transition: 0.3s;}
         .nav-item i { font-size: 20px; }
         .nav-item.active { color: var(--primary); }
-        
         @media (max-width: 768px) { .bottom-nav { display: flex; } }
 
-        /* FOOTER */
         footer { background: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 40px 20px 90px; text-align: center; color: var(--text-sub); }
         .social-links { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
         .social-links a { width: 40px; height: 40px; border-radius: 50%; background: var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-main); transition: 0.3s; }
-        .social-links a:hover { background: var(--primary); color: #fff; }
 
         #btn-back-top { position: fixed; bottom: 80px; right: 20px; background: var(--primary); color: #fff; width: 40px; height: 40px; border-radius: 50%; border: none; font-size: 18px; cursor: pointer; box-shadow: var(--shadow); z-index: 999; opacity: 0; pointer-events: none; transition: 0.3s; display: flex; align-items: center; justify-content: center;}
         #btn-back-top.show { opacity: 1; pointer-events: auto; }
@@ -194,7 +179,15 @@
         <button onclick="document.getElementById('tiktok-overlay').style.display='none'" style="padding:12px 30px; border-radius:30px; background:var(--primary); color:#fff; border:none; font-weight:bold; font-size: 16px; cursor:pointer;">Tôi Đã Hiểu</button>
     </div>
 
-    <!-- MODAL ĐĂNG NHẬP / TẠO TÀI KHOẢN -->
+    <!-- OVERLAY ÉP CLICK QUẢNG CÁO (CHẠY MỖI 10 PHÚT ĐANG XEM) -->
+    <div id="force-ad-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:999999; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; backdrop-filter:blur(10px);">
+        <i class="fa-solid fa-rectangle-ad" style="font-size:60px; color:var(--primary); margin-bottom:20px; animation: pulse 2s infinite;"></i>
+        <h2 style="color:#fff; margin-bottom:15px;">Thời gian ủng hộ Admin!</h2>
+        <p style="color:#ccc; margin-bottom:30px; font-size:15px; max-width: 400px; line-height: 1.6;">Bạn đã trải nghiệm được 10 phút. Vui lòng bấm vào nút bên dưới để xem 1 quảng cáo ngắn, sau đó bạn sẽ được tự động tiếp tục nội dung.</p>
+        <button onclick="executeForceAd()" style="padding:15px 40px; border-radius:30px; background:var(--primary); color:#fff; font-weight:bold; border:none; font-size:16px; cursor:pointer; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);">Xem Quảng Cáo & Tiếp Tục</button>
+    </div>
+
+    <!-- MODAL ĐĂNG NHẬP -->
     <div id="auth-modal" class="modal-overlay">
         <div class="modal-box">
             <button class="modal-close" onclick="closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -206,7 +199,7 @@
         </div>
     </div>
 
-    <!-- TRÌNH PHÁT AUDIO MINI NỔI CHUYÊN NGHIỆP -->
+    <!-- TRÌNH PHÁT AUDIO MINI -->
     <div id="mini-player" style="display:none; position:fixed; bottom:75px; left:10px; right:10px; background:var(--bg-surface); border:1px solid var(--primary); border-radius:15px; padding:10px 15px; z-index:1500; box-shadow: 0 5px 20px rgba(0,0,0,0.6); align-items:center; gap:12px; transition:0.3s; backdrop-filter: blur(10px);">
         <img id="mini-thumb" src="" style="width:45px; height:45px; border-radius:50%; object-fit:cover; animation: spin 5s linear infinite;">
         <div style="flex-grow:1; overflow:hidden;">
@@ -221,7 +214,6 @@
             <a href="#" class="logo" onclick="goHome()">👑 Kai Tồ <span>Review</span></a>
             <div class="header-actions">
                 <button class="icon-btn" onclick="toggleTheme()" title="Sáng/Tối"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
-                <!-- Nút Tài Khoản Header -->
                 <div id="header-user-btn" class="user-profile-btn" onclick="openAuthModal()">
                     <i class="fa-solid fa-user"></i> Đăng nhập
                 </div>
@@ -288,13 +280,11 @@
             <div class="comment-section">
                 <h3 class="comment-title"><i class="fa-regular fa-comments"></i> Bình luận (<span id="comment-count">0</span>)</h3>
                 
-                <!-- Báo yêu cầu đăng nhập -->
                 <div class="require-login-box" id="require-login-box">
                     <p>Vui lòng đăng nhập để tham gia bình luận cùng mọi người.</p>
                     <button class="btn-login" onclick="openAuthModal()">Đăng nhập ngay</button>
                 </div>
 
-                <!-- Box nhập bình luận (Chỉ hiện khi đã đăng nhập) -->
                 <div class="comment-input-box" id="comment-input-box">
                     <div class="comment-input-header">
                         <img src="https://ui-avatars.com/api/?name=User&background=random" id="current-user-avatar">
@@ -306,10 +296,7 @@
                     </div>
                 </div>
 
-                <!-- Danh sách bình luận -->
-                <div class="comment-list" id="comment-list">
-                    <!-- Các bình luận sẽ được Javascript render vào đây -->
-                </div>
+                <div class="comment-list" id="comment-list"></div>
             </div>
         </div>
     </div>
@@ -322,7 +309,6 @@
         <div class="grid-container" id="grid-list"></div>
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
     <nav class="bottom-nav">
         <div class="nav-item active" id="nav-home" onclick="goHome()">
             <i class="fa-solid fa-house"></i><span>Trang Chủ</span>
@@ -353,9 +339,8 @@
             'https://vt.tiktok.com/ZS9hwC35QqF5E-27I2e/'
         ];
         
-        // Đã sửa lại thành 1 phút (60,000 mili giây) để bạn dễ Test quảng cáo
-        // (Nếu muốn đổi lại 10 phút, bạn đổi số 1 thành số 10 nhé)
-        const AD_COOLDOWN_MS = 1 * 60 * 1000; 
+        // Cấu hình thời gian quảng cáo: 10 phút = 10 * 60 * 1000 mili giây.
+        const AD_COOLDOWN_MS = 10 * 60 * 1000; 
 
         let allData = [];
         let currentItem = null;
@@ -368,9 +353,70 @@
             await fetchData();
             document.getElementById('global-loader').style.opacity = '0';
             setTimeout(() => document.getElementById('global-loader').style.display = 'none', 500);
+            
+            // Khởi động bộ đếm kiểm tra quảng cáo mỗi 5 giây
+            startAdCheckLoop();
         });
 
-        /* ---- HỆ THỐNG ĐĂNG NHẬP (LƯU LOCAL) ---- */
+        /* ---- HỆ THỐNG KIỂM SOÁT QUẢNG CÁO NGHIÊM NGẶT ---- */
+        
+        // Trả về TRUE nếu nhảy sang tab quảng cáo thành công.
+        function checkAndTriggerAd() {
+            if (AD_LINKS.length === 0) return false;
+            
+            let lastAdTime = parseInt(localStorage.getItem('kaito_last_ad_time') || '0');
+            let now = Date.now();
+
+            if (now - lastAdTime >= AD_COOLDOWN_MS) {
+                let currentAdIndex = parseInt(localStorage.getItem('kaito_ad_index') || '0');
+                const adUrl = AD_LINKS[currentAdIndex];
+                
+                localStorage.setItem('kaito_ad_index', (currentAdIndex + 1) % AD_LINKS.length);
+                localStorage.setItem('kaito_last_ad_time', now.toString());
+
+                window.open(adUrl, '_blank');
+                return true;
+            }
+            return false;
+        }
+
+        // Loop kiểm tra đang xem được 10 phút chưa, nếu đủ thì bật popup ép xem quảng cáo
+        function startAdCheckLoop() {
+            setInterval(() => {
+                let lastAdTime = parseInt(localStorage.getItem('kaito_last_ad_time') || '0');
+                let now = Date.now();
+                
+                let isWatching = (document.getElementById('detail-view').style.display === 'block') || 
+                                 (document.getElementById('mini-player').style.display === 'flex');
+                
+                if (isWatching && (now - lastAdTime >= AD_COOLDOWN_MS)) {
+                    // Tạm dừng nhạc nếu đang phát
+                    const globalAudio = document.getElementById('global-audio');
+                    if(globalAudio && !globalAudio.paused) globalAudio.pause();
+                    
+                    document.getElementById('force-ad-overlay').style.display = 'flex';
+                }
+            }, 5000); 
+        }
+
+        // Hàm chạy khi người dùng bấm nút ở màn hình đen 10 phút
+        function executeForceAd() {
+            let currentAdIndex = parseInt(localStorage.getItem('kaito_ad_index') || '0');
+            const adUrl = AD_LINKS[currentAdIndex];
+            
+            localStorage.setItem('kaito_ad_index', (currentAdIndex + 1) % AD_LINKS.length);
+            localStorage.setItem('kaito_last_ad_time', Date.now().toString());
+
+            window.open(adUrl, '_blank');
+            document.getElementById('force-ad-overlay').style.display = 'none';
+            
+            // Tiếp tục nhạc
+            const globalAudio = document.getElementById('global-audio');
+            if(globalAudio && globalAudio.src) globalAudio.play();
+        }
+
+        /* ---- CÁC HÀM CŨ ĐƯỢC GIỮ NGUYÊN BÊN DƯỚI ---- */
+
         function checkLoginStatus() {
             let savedUser = localStorage.getItem('kaito_user');
             if (savedUser) {
@@ -395,7 +441,6 @@
         function processLogin() {
             let name = document.getElementById('auth-username').value.trim();
             if (name === '') { showToast('Vui lòng nhập tên hiển thị!'); return; }
-            
             currentUser = { name: name, id: 'user_' + Date.now() };
             localStorage.setItem('kaito_user', JSON.stringify(currentUser));
             showToast('Đăng nhập thành công!');
@@ -404,14 +449,13 @@
         }
 
         function logoutUser(event) {
-            event.stopPropagation(); // Ngăn việc click đè vào mở modal
+            event.stopPropagation();
             localStorage.removeItem('kaito_user');
             currentUser = null;
             showToast('Đã đăng xuất!');
             checkLoginStatus();
         }
 
-        /* ---- HỆ THỐNG BÌNH LUẬN ---- */
         function loadComments(videoId) {
             let allComments = JSON.parse(localStorage.getItem('kaito_comments') || '{}');
             let videoComments = allComments[videoId] || [];
@@ -440,9 +484,7 @@
 
         function postComment() {
             let text = document.getElementById('comment-text').value.trim();
-            if (text === '') return;
-            
-            if (!currentItem) return;
+            if (text === '' || !currentItem) return;
 
             let newComment = {
                 userName: currentUser.name,
@@ -453,7 +495,6 @@
             let allComments = JSON.parse(localStorage.getItem('kaito_comments') || '{}');
             if (!allComments[currentItem.id]) allComments[currentItem.id] = [];
             
-            // Đẩy comment mới lên đầu
             allComments[currentItem.id].unshift(newComment);
             localStorage.setItem('kaito_comments', JSON.stringify(allComments));
             
@@ -461,7 +502,6 @@
             showToast('Đã gửi bình luận!');
             loadComments(currentItem.id);
         }
-
 
         function checkTikTokBrowser() {
             const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -476,9 +516,7 @@
                 const data = await res.json();
                 allData = data.videos || [];
                 renderHome();
-            } catch (error) {
-                showToast("Lỗi tải dữ liệu, đang dùng dữ liệu lưu tạm!");
-            }
+            } catch (error) { showToast("Lỗi tải dữ liệu!"); }
         }
 
         function isCategoryMatch(itemCat, targetCat) {
@@ -527,13 +565,11 @@
             btnElement.classList.add('active');
             renderHome(cat, document.getElementById('searchBox').value);
         }
-
         function handleSearch() {
             let activePill = document.querySelector('.cat-pill.active');
             let cat = activePill ? activePill.innerText.replace(/🔥 |📖 |🎧 |🎬 /g, '') : 'Tất cả';
             renderHome(cat, document.getElementById('searchBox').value);
         }
-
         function goHome() {
             document.getElementById('main-view').style.display = 'block';
             document.getElementById('detail-view').style.display = 'none';
@@ -541,44 +577,19 @@
             updateBottomNav('nav-home');
         }
 
-        /* HỆ THỐNG XỬ LÝ QUẢNG CÁO (ĐÃ NÂNG CẤP VƯỢT CHẶN POPUP) */
-        function tryTriggerAd(forceDirect = false) {
-            if (AD_LINKS.length === 0) return;
-            
-            let lastAdTime = parseInt(localStorage.getItem('kaito_last_ad_time') || '0');
-            let now = Date.now();
-
-            if (now - lastAdTime >= AD_COOLDOWN_MS) {
-                let currentAdIndex = parseInt(localStorage.getItem('kaito_ad_index') || '0');
-                const adUrl = AD_LINKS[currentAdIndex];
-                
-                localStorage.setItem('kaito_ad_index', (currentAdIndex + 1) % AD_LINKS.length);
-                localStorage.setItem('kaito_last_ad_time', now.toString());
-
-                // Sử dụng tạo thẻ <a> ẩn để click giả lập (Vượt trình chặn popup của Safari/Chrome tốt hơn)
-                const link = document.createElement('a');
-                link.href = adUrl;
-                link.target = '_blank';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        }
-
         function openDetail(id) {
+            // ĐIỀU KIỆN 1: NẾU BẤM VIDEO MÀ ĐỦ GIỜ XEM QUẢNG CÁO -> CHẶN MỞ VIDEO, CHUYỂN TAB.
+            if (checkAndTriggerAd()) {
+                showToast("Đang mở quảng cáo... Vui lòng bấm vào lại Video để xem!");
+                return; 
+            }
+
             let isSameVideo = currentItem && currentItem.id == id;
             currentItem = allData.find(v => v.id == id);
             if(!currentItem) return;
 
             saveHistory(id);
-
-            // Load bình luận của Video này
             loadComments(id);
-
-            let isAudioMode = (currentItem.videoUrl || '').includes('.mp3') || isCategoryMatch(currentItem.category, 'Audio');
-            if (!isAudioMode) {
-                tryTriggerAd(); 
-            }
 
             document.getElementById('main-view').style.display = 'none';
             document.getElementById('list-view').style.display = 'none';
@@ -595,6 +606,7 @@
             if (isSameVideo && playerWrap.innerHTML.trim() !== '') return;
 
             let url = (currentItem.videoUrl || '').trim();
+            let isAudioMode = url.includes('.mp3') || isCategoryMatch(currentItem.category, 'Audio');
 
             function getYouTubeEmbedUrl(ytUrl) {
                 const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
@@ -648,7 +660,11 @@
         }
 
         function startAudio(url) {
-            tryTriggerAd();
+            // ĐIỀU KIỆN 1 MỞ RỘNG: Dành riêng cho Audio. Nếu bấm Play mà bị dính quảng cáo thì sẽ chặn Audio lại.
+            if (checkAndTriggerAd()) {
+                showToast("Đang mở quảng cáo... Vui lòng nhấn Play lại lần nữa!");
+                return; 
+            }
 
             const miniPlayer = document.getElementById('mini-player');
             miniPlayer.style.display = 'flex';
@@ -666,10 +682,7 @@
             if (btn) btn.style.display = 'none';
 
             const hint = document.getElementById('audio-hint-text');
-            if (hint) {
-                hint.innerText = "Đang phát audio. Bạn có thể lướt web tiếp!";
-                hint.style.color = "var(--primary)";
-            }
+            if (hint) { hint.innerText = "Đang phát audio. Bạn có thể lướt web tiếp!"; hint.style.color = "var(--primary)"; }
         }
 
         function closeMiniPlayer() {
@@ -677,18 +690,12 @@
             const audioEl = document.getElementById('global-audio');
             audioEl.pause();
             audioEl.src = "";
-            
             const thumb = document.getElementById('detail-audio-thumb');
             if (thumb) thumb.style.animation = 'none';
-            
             const btn = document.getElementById('custom-play-btn');
             if (btn) btn.style.display = 'flex';
-            
             const hint = document.getElementById('audio-hint-text');
-            if (hint) {
-                hint.innerText = "Nhấn để phát (Hỗ trợ lướt web nền)";
-                hint.style.color = "var(--text-sub)";
-            }
+            if (hint) { hint.innerText = "Nhấn để phát (Hỗ trợ lướt web nền)"; hint.style.color = "var(--text-sub)"; }
         }
 
         function saveHistory(id) {
